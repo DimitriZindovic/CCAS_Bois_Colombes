@@ -11,7 +11,7 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('image')->nullable();
+            $table->string('image')->nullable();
             $table->dateTime('date');
             $table->foreignId('event_id')->constrained()->unique();
             $table->foreignId('user_id')->constrained()->unique();

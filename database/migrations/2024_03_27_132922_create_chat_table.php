@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('room_id')->constrained()->unique();
             $table->foreignId('user_id')->constrained()->unique();
-            $table->binary('image')->nullable();
+            $table->string('image')->nullable();
             $table->string('message', 1000);
             // $table->dateTime('date')->default(now());
             $table->timestamps();

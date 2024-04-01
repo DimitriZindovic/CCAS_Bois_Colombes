@@ -15,7 +15,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('date');
             $table->string('location');
             $table->string('address', 255);
-            $table->binary('image')->nullable();
+            $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained()->unique();
             $table->timestamps();
         });
