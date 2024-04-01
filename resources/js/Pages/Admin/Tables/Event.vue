@@ -8,7 +8,20 @@ export default {
             return new Date(date).toLocaleDateString();
         },
         visitRoom(roomId) {
-            this.$inertia.visit(`/rooms/${roomId}`);
+            this.$inertia.visit(`/dmin/dashboard/rooms/${roomId}`);
+        },
+        deleteEvent(eventId) {
+            axios
+                .delete(`/admin/dashboard/events/${eventId}`)
+                .then(() => {
+                    this.$inertia.visit("/admin/dashboard/events");
+                    this.events = this.events.filter(
+                        (event) => event.id !== eventId
+                    );
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         },
     },
 };
@@ -27,6 +40,9 @@ export default {
                 <!-- <img :src="event.image" alt="event image" /> -->
                 <button @click="visitRoom(event.room.id)">
                     Rejoindre l'évènement <strong>{{ event.room.name }}</strong>
+                </button>
+                <button @click="deleteEvent(event.id)">
+                    Supprimer l'évènement
                 </button>
             </div>
         </div>
