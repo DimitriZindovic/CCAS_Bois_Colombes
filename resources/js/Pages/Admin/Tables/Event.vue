@@ -8,7 +8,7 @@ export default {
             return new Date(date).toLocaleDateString();
         },
         visitRoom(roomId) {
-            this.$inertia.visit(`/dmin/dashboard/rooms/${roomId}`);
+            this.$inertia.visit(`/admin/dashboard/rooms/${roomId}`);
         },
         deleteEvent(eventId) {
             axios
@@ -22,6 +22,9 @@ export default {
                 .catch((error) => {
                     console.error(error);
                 });
+        },
+        updateEvent(eventId) {
+            this.$inertia.visit(`/admin/dashboard/events/update/${eventId}`);
         },
     },
 };
@@ -43,6 +46,9 @@ export default {
                 </button>
                 <button @click="deleteEvent(event.id)">
                     Supprimer l'évènement
+                </button>
+                <button @click="updateEvent(event.id)">
+                    Mettre à jour l'événement
                 </button>
             </div>
         </div>
