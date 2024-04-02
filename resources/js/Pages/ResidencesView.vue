@@ -601,9 +601,9 @@ export default {
         }
     }
 
-    .scroll {
-        height: 7.2vh;
-    }
+    // .scroll {
+    //     height: 7.2vh;
+    // }
 }
 
 @media (max-width: 1024px) {

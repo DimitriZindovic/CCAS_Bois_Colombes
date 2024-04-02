@@ -5,7 +5,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ResidenceController;
+use App\Http\Controllers\SortieController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -18,8 +19,11 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
 
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/residences-et-etablissements', [ShowController::class, 'index'])
+Route::get('/residences-et-etablissements', [ResidenceController::class, 'index'])
     ->name('residences-et-etablissements');
+
+Route::get('/sorties-du-ccas', [SortieController::class, 'index'])
+    ->name('sorties-du-ccas');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
