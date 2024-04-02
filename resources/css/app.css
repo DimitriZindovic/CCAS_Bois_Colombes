@@ -1,5 +1,17 @@
+<<<<<<< HEAD
+=======
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100&display=swap");
+
+>>>>>>> 19dc051ecccaef94bcc2c500ca5549c6faee46ef
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+<<<<<<< HEAD
+=======
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+>>>>>>> 19dc051ecccaef94bcc2c500ca5549c6faee46ef
