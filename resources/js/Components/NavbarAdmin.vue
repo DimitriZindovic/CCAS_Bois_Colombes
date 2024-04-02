@@ -15,8 +15,8 @@ nav {
     padding: 1rem;
     background-color: #eeeeee;
     border-radius: 5px;
-    width: 300px;
-    height: 100vh;
+    padding-inline: 50px;
+    min-height: 100vh;
 
     a {
         text-decoration: none;

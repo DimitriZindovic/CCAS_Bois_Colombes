@@ -6,6 +6,12 @@ export default {
     components: {
         NavbarAdmin,
     },
+    data() {
+        return {
+            currentURL: "",
+            Url: "",
+        };
+    },
     props: ["users"],
     methods: {
         deleteUser(user) {
@@ -25,17 +31,29 @@ export default {
             }
         },
         getDownloadUrl(filename) {
-            return `/download/file/${filename}`;
+            return `${this.currentURL}/storage/${filename}`;
         },
+        getDownloadUrlIdentity(filename) {
+            return `${this.Url}/storage/${filename}`;
+        },
+        addUser() {
+            this.$inertia.visit("/admin/dashboard/users/add");
+        },
+    },
+    mounted() {
+        this.currentURL = new URL(window.location.href).origin;
+        this.Url = new URL(window.location.href).origin;
     },
 };
 </script>
 <template>
     <h1>Utilisateurs</h1>
     <div class="container">
-        <NavbarAdmin />
+        <nav>
+            <NavbarAdmin />
+        </nav>
         <div>
-            <button class="btn-add" @click="addUser">Ajouter</button>
+            <button class="btn-add" @click="addUser()">Ajouter</button>
             <div class="user" v-for="user in users" :key="user.id">
                 <p class="user-item">{{ user.name }}</p>
                 <p class="user-item">{{ user.surname }}</p>
@@ -44,9 +62,20 @@ export default {
                 <p class="user-item">{{ user.birth }}</p>
                 <p class="user-item">{{ user.phone }}</p>
                 <p class="user-item">{{ user.city }}</p>
-                <a :href="getDownloadUrl" class="btn-download" download
-                    >Télécharger</a
+                <a
+                    :href="getDownloadUrl(user.domicile_certificate)"
+                    class="btn-download"
+                    download
                 >
+                    Certificat de domicile
+                </a>
+                <a
+                    :href="getDownloadUrlIdentity(user.card_identity)"
+                    class="btn-download"
+                    download
+                >
+                    Carte d'identité
+                </a>
                 <a
                     :href="route('updateUser', { user: user.id })"
                     class="btn-edit"
@@ -109,7 +138,7 @@ div {
         overflow: auto;
 
         .user-item {
-            max-width: calc(100% / 7 - 10px);
+            max-width: calc(100% / 8 - 10px);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

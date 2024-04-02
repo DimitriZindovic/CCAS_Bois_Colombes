@@ -92,10 +92,16 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('admin/dashboard/rooms/{room}/chats/{chat}', [ChatController::class, 'destroy'])
         ->name('messageDelete');
+
+    Route::get('/admin/dashboard/events', [EventController::class, 'index'])
+        ->name('eventsUser');
 });
 
-Route::get('/admin/dashboard/events', [EventController::class, 'index'])
-    ->name('eventsUser');
+Route::get('/dashboard', [EventController::class, 'showEvents'])
+    ->name('dashboard');
+
+Route::get('/events', [EventController::class, 'index'])
+    ->name('events');
 
 Route::get('/rooms/create', [RoomController::class, 'create'])
     ->name('rooms');
