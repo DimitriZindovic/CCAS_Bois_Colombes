@@ -41,6 +41,8 @@ class UserController extends Controller
             'password.confirmed' => 'La confirmation du mot de passe ne correspond pas.',
         ]);
 
+        $domicile = $request->file('domicile_certificate')->store('public/domicile_certificates');
+        $card_identity = $request->file('card_identity')->store('public/card_identities');
 
         User::create([
             'name' => $request->name,
@@ -49,10 +51,10 @@ class UserController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'phone' => $request->phone,
-            'card_identity' => $request->file('card_identity')->store('card_identities'),
+            'card_identity' => str_replace('public/', '', $card_identity),
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'domicile_certificate' => $request->file('domicile_certificate')->store('domicile_certificates'),
+            'domicile_certificate' => str_replace('public/', '', $domicile),
             'signature' => $request->signature,
             'role' => $request->role,
         ]);

@@ -4,7 +4,7 @@ import { Link } from "@inertiajs/vue3";
 <template>
     <nav>
         <Link :href="route('user')">Utilisateurs</Link>
-        <Link :href="route('events')">Évènements</Link>
+        <Link :href="route('event')">Évènements</Link>
         <Link :href="route('chatRooms')">Salles</Link>
     </nav>
 </template>
@@ -15,8 +15,8 @@ nav {
     padding: 1rem;
     background-color: #eeeeee;
     border-radius: 5px;
-    width: 300px;
-    height: 100vh;
+    padding-inline: 50px;
+    min-height: 100vh;
 
     a {
         text-decoration: none;

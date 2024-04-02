@@ -19,7 +19,8 @@ class EventController extends Controller
 
     public function create()
     {
-        return Inertia::render('Admin/Tables/Event');
+        $events = Event::with('room')->get();
+        return Inertia::render('Admin/Tables/Event', ['events' => $events]);
     }
 
     public function store(Request $request)
@@ -30,7 +31,7 @@ class EventController extends Controller
             'date' => 'required|date',
             'location' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            // 'image' => 'file|max:2048',
+            // 'image' => 'string|max:2048',
 
         ], [
             'name.required' => 'Le champ nom est requis.',
@@ -42,6 +43,7 @@ class EventController extends Controller
             // 'image.file' => 'Le champ image doit être un fichier.',
             // 'image.max' => 'Le fichier image de carte ne doit pas dépasser 2 Mo.',
         ]);
+
 
         $image = Storage::put('public/images', $request->file('image'));
 
@@ -88,5 +90,11 @@ class EventController extends Controller
         $event->delete();
 
         return Inertia::render('Admin/Tables/Event', ['message' => 'Event deleted successfully']);
+    }
+
+    public function showEvents()
+    {
+        $events = Event::with('room')->get();
+        return Inertia::render('Dashboard', ['events' => $events]);
     }
 }
