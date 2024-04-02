@@ -31,21 +31,6 @@ export default {
 };
 </script>
 <template>
-<<<<<<< HEAD
-    <div>
-        <a :href="route('addUser')">Ajouter</a>
-        <div v-for="user in users" :key="user.id">
-            <p>{{ user.name }}</p>
-            <p>{{ user.surname }}</p>
-            <p>{{ user.email }}</p>
-            <p>{{ user.address }}</p>
-            <p>{{ user.birth }}</p>
-            <p>{{ user.phone }}</p>
-            <p>{{ user.city }}</p>
-            <a :href="getDownloadUrl" download>Download File</a>
-            <a :href="route('updateUser', { user: user.id })">Editer</a>
-            <button @click="deleteUser(user)">Supprimer</button>
-=======
     <h1>Utilisateurs</h1>
     <div class="container">
         <NavbarAdmin />
@@ -71,7 +56,6 @@ export default {
                     Supprimer
                 </button>
             </div>
->>>>>>> 19dc051ecccaef94bcc2c500ca5549c6faee46ef
         </div>
     </div>
 </template>
