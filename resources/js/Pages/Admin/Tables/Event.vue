@@ -3,6 +3,11 @@ import axios from "axios";
 
 export default {
     props: ["events"],
+    data() {
+        return {
+            currentURL: "",
+        };
+    },
     methods: {
         formatDate(date) {
             return new Date(date).toLocaleDateString();
@@ -27,6 +32,9 @@ export default {
             this.$inertia.visit(`/admin/dashboard/events/update/${eventId}`);
         },
     },
+    mounted() {
+        this.currentURL = new URL(window.location.href).origin;
+    },
 };
 </script>
 <template>
@@ -40,9 +48,13 @@ export default {
                 <p>Date : {{ formatDate(event.date) }}</p>
                 <p>Ville : {{ event.location }}</p>
                 <p>Adresse : {{ event.address }}</p>
-                <!-- <img :src="event.image" alt="event image" /> -->
-                <button @click="visitRoom(event.room.id)">
-                    Rejoindre l'évènement <strong>{{ event.room.name }}</strong>
+                <img
+                    :src="currentURL + '/storage/' + event.image"
+                    alt="event image"
+                />
+                <button @click="visitRoom(event.room?.id)">
+                    Rejoindre l'évènement
+                    <strong>{{ event.room?.name }}</strong>
                 </button>
                 <button @click="deleteEvent(event.id)">
                     Supprimer l'évènement

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use App\Models\Event;
 use App\Models\Room;
@@ -41,6 +42,9 @@ class EventController extends Controller
             // 'image.file' => 'Le champ image doit être un fichier.',
             // 'image.max' => 'Le fichier image de carte ne doit pas dépasser 2 Mo.',
         ]);
+
+        $image = Storage::put('public/images', $request->file('image'));
+
         $event = Event::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -48,6 +52,7 @@ class EventController extends Controller
             'location' => $request->location,
             'address' => $request->address,
             'user_id' => auth()->id(),
+            'image' => str_replace('public/', '', $image),
         ]);
 
         Room::create([
@@ -56,6 +61,8 @@ class EventController extends Controller
             'user_id' => auth()->id(),
             'event_id' => $event->id,
         ]);
+
+        return Inertia::render('Admin/Tables/Event', ['message' => 'Event created successfully']);
     }
 
     public function showPage(Event $event)
