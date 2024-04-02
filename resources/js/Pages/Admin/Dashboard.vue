@@ -1,11 +1,15 @@
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import NavbarAdmin from "../../Components/NavbarAdmin.vue";
 </script>
 <template>
-    <h1>Admin</h1>
-    <nav>
-        <Link :href="route('user')">Utilisateurs</Link>
-        <Link :href="route('events')">Évènements</Link>
-        <Link :href="route('chatRooms')">Salles</Link>
-    </nav>
+    <h1>Interface administrateur</h1>
+    <NavbarAdmin />
 </template>
+<style scoped lang="scss">
+h1 {
+    font-size: 2em;
+    color: #333;
+    padding: 1rem;
+    border-bottom: 1px solid rgb(182, 182, 182);
+}
+</style>
