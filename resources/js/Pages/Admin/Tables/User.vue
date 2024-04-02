@@ -28,7 +28,6 @@ export default {
 </script>
 <template>
     <div>
-        <h1>Hello</h1>
         <a :href="route('addUser')">Ajouter</a>
         <div v-for="user in users" :key="user.id">
             <p>{{ user.name }}</p>

@@ -7,179 +7,172 @@ export default {
 <template>
     <hr class="hrHead" />
 
-    <section class="Residences">
-        <section class="appartsHead">
-            <div class="AppartTitle">
-                <img src="../../assets/trait_texte.png" alt="" />
-                <h1>Résidences et établissements</h1>
-            </div>
-        </section>
+    <div class="body">
+        <div class="title">
+            <div class="yellow-bar"></div>
+            <h1>Résidences et établissements</h1>
+        </div>
 
-        <section class="senior">
-            <div class="seniorTitle">
-                <h2>Les résidences pour personnes âgées</h2>
-                <p>
-                    Dans un cadre à la fois agréable, calme et proche du centre
-                    de Paris, la ville de Bois-Colombes dispose de plusieurs
-                    résidences adaptées aux différents besoins des personnes
-                    âgées.
-                </p>
-            </div>
+        <div class="description">
+            <h2>Les résidences pour personnes agées</h2>
+            <p>
+                Dans un cadre à la fois agréable, calme et proche du centre de
+                Paris, la ville de Bois-Colombes dispose de plusieurs résidences
+                adaptées aux différents besoins des personnes âgées.
+            </p>
+        </div>
 
-            <div class="appart1">
-                <h2>La résidence André-Chénier</h2>
-                <div class="andre">
-                    <img src="../../assets/andre.png" alt="" />
-                    <p>
-                        19, rue André-Chénier <br />
-                        Tél : 01 47 80 40 89 <br />
-                        Site internet :
-                    </p>
+        <div class="residence">
+            <h3>La résidence André-Chénier</h3>
+            <div class="img-location">
+                <img
+                    src="../../assets/andre.png"
+                    alt="Photo résidence André Chénier"
+                />
+                <div class="location">
+                    <ul>
+                        <li>Adresse : 19, rue André-Chénier</li>
+                        <li>92270 Bois-Colombes</li>
+                        <li>Téléphone : 01 47 80 40 89</li>
+                    </ul>
                 </div>
+            </div>
+            <div class="paragraph">
                 <p>
-                    Construite au cœur d'un grand parc privé, arboré et
-                    agrémenté d'une pièce d'eau, la résidence André-Chénier
-                    appartient à l'Office Public Départemental d'H.L.M des
-                    Hauts-de-Seine. Elle est gérée par Hauts-de-Seine Habitat.
-                    La résidence n'est pas médicalisée mais bénéficie de tous
-                    les services de maintien des personnes à domicile.
+                    Construite au cœur d’un grand parc privé, arboré et
+                    agrémenté d’une pièce d’eau, la résidence André-Chénier
+                    appartient à l’Office Public Départemental d’H.L.M des
+                    Hauts-de-Seine. Elle est gérée par Hauts-de-Seine
+                    Habitat. La résidence n’est pas médicalisée mais bénéficie
+                    de tous les services de maintien des personnes à domicile.
                     <br /><br />
                     73 appartements : 61 grands studios de 33 m2 avec balcon, 2
                     deux-pièces de 40 m2, 4 appartements de 66 m2 constitués de
                     2 grands studios communicants.
                     <br /><br />
-                    Conditions d'admission : avoir plus de 60 ans, être
+                    Conditions d’admission : avoir plus de 60 ans, être
                     bois-colombien ou avoir des enfants qui habitent dans la
                     ville ou dans les communes proches, être autonome et valide.
                     <br /><br />
-                    • Interphone extérieur relié à l'appartement,<br />
-                    • Parking extérieur,<br />
-                    • Résidence climatisée,<br />
-                    • Restaurant de 60 couverts sur commande, service déjeuner à
-                    table 5 jours sur 7,<br />
-                    • Chambre d'hôte,<br />
-                    • Coiffeur et pédicure à domicile,<br />
-                    • Navette municipale 4 jours par semaine pour le marché et
-                    les clubs de loisirs.<br />
-                    • Indépendants, les résidants peuvent prendre leur repas de
-                    midi au restaurant de l'établissement. Bibliothèque salons
-                    sont aussi à leur disposition.
                 </p>
+                <ul>
+                    <li>Interphone extérieur relié à l’appartement</li>
+                    <li>Parking extérieur</li>
+                    <li>Résidence climatisée</li>
+                    <li>
+                        Restaurant de 60 couverts sur commande, service déjeuner
+                        à table 5 jours sur 7
+                    </li>
+                    <li>Chambre d’hôte</li>
+                    <li>Coiffeur et pédicure à domicile</li>
+                    <li>
+                        Navette municipale 4 jours par semaine pour le marché et
+                        les clubs de loisirs
+                    </li>
+                    <li>
+                        Indépendants, les résidants peuvent prendre leur repas
+                        de midi au restaurant de l’établissement. Bibliothèque
+                        salons sont aussi à leur disposition
+                    </li>
+                </ul>
             </div>
-        </section>
-
-        <section class="medical">
-            <h2>Les résidences médicalisées</h2>
-            <div class="appart2">
-                <h2>La résidence Léopold-Bellan</h2>
-                <div class="leopold">
-                    <img src="../../assets/leopold.png" alt="" />
-                    <p>
-                        17, avenue Charles-de-Gaulle <br />
-                        Tél : 01 47 86 57 00 <br />
-                        Couriel :
-                    </p>
+        </div>
+        <h2>Les résidences médicalisées</h2>
+        <div class="residence">
+            <h3>La résidence Léopold-Bellan</h3>
+            <div class="img-location">
+                <img
+                    src="../../assets/leopold.png"
+                    alt="Photo résidence Léopold Bellan"
+                />
+                <div class="location">
+                    <ul>
+                        <li>Adresse : 17, avenue Charles-de-Gaulle</li>
+                        <li>92270 Bois-Colombes</li>
+                        <li>Téléphone : 01 47 86 57 00</li>
+                    </ul>
                 </div>
+            </div>
+            <div class="paragraph">
                 <p>
                     Cette résidence fait partie de la Fondation Léopold-Bellan.
                     <br /><br />
                     La Résidence de retraite médicalisée Léopold Bellan de
-                    Bois-Colombes est un Établissement d'Hébergement pour
-                    Personnes Âgées Dépendantes (EHPAD).
+                    Bois-Colombes est un Établissement d’Hébergement pour
+                    Personnes  Âgées Dépendantes (EHPAD).
                     <br /><br />
                     Elle accueille, dans un cadre de vie adapté, des personnes
-                    âgées, à partir de 60 ans, qui, sans relever d'une prise en
+                    âgées, à partir de 60 ans, qui, sans relever d’une prise en
                     charge médicale et technique lourde, ne peuvent plus vivre à
-                    domicile. Ainsi elle reçoit notamment celles qu'un handicap
+                    domicile. Ainsi elle reçoit notamment celles qu’un handicap
                     physique ou psychique lié au grand âge rend totalement ou
-                    partiellement dépendantes dans l'accomplissement des actes
+                    partiellement dépendantes dans l’accomplissement des actes
                     élémentaires de la vie quotidienne.
                     <br /><br />
-                    Sa capacité d'accueil est de 80 places d'hébergement
-                    permanent et de 2 places d'hébergement temporaire, réparties
-                    en 4 unités de vie dont 1 protégée et sécurisée pour
+                    Sa capacité d’accueil est de 80 places d’hébergement
+                    permanent et de 2 places d’hébergement temporaire, réparties
+                    en 4 unités de vie dont 1 protégée et sécurisée pour
                     recevoir, dans les meilleures conditions, les personnes
-                    atteintes de la maladie d'Alzheimer ou apparentée.
+                    atteintes de la maladie d’Alzheimer ou apparentée.
                     <br /><br />
-                    Toutes les chambres bénéficient d'une douche et de
-                    sanitaires adaptés. Les couples peuvent disposer soit d'1
-                    chambre double (au nombre de 4 dans l'établissement), soit
-                    de 2 chambres individuelles communicantes. Toutes les
-                    chambres sont meublées et équipées d'un téléphone et d'un
+                    Toutes les chambres bénéficient d’une douche et de
+                    sanitaires adaptés. Les couples peuvent disposer soit
+                    d’1 chambre double (au nombre de 4 dans l’établissement),
+                    soit de 2 chambres individuelles communicantes. Toutes les
+                    chambres sont meublées et équipées d’un téléphone et d’un
                     appel sonore.
                     <br /><br />
-                    La Résidence propose un accompagnement personnalisé et des
-                    activités adaptées aux pathologies des personnes dépendantes
+                    La Résidence propose un accompagnement personnalisé et des
+                    activités adaptées aux pathologies des personnes dépendantes
                     avec le souci constant de leur apporter confort, bien-être
-                    et sécurité. À cette fin, toutes les compétences médicales,
-                    paramédicales, sociales, hôtelières sont présentes.
+                    et sécurité. À cette fin, toutes les compétences médicales,
+                    paramédicales, sociales, hôtelières sont présentes.
                 </p>
             </div>
-
-            <div class="appart3">
-                <h2>La résidence Ste-Marthe</h2>
-                <div class="marthe">
-                    <img src="../../assets/marthe.png" alt="" />
-                    <p>
-                        3, rue Carnot <br />
-                        Tél : 01 56 05 61 40 <br />
-                        Couriel : Site internet :
-                    </p>
+        </div>
+        <div class="residence">
+            <h3>La résidence Ste-Marthe</h3>
+            <div class="img-location">
+                <img
+                    src="../../assets/marthe.png"
+                    alt="Photo résidence Ste-Marthe"
+                />
+                <div class="location">
+                    <ul>
+                        <li>Adresse : 1, rue des Tilleuls</li>
+                        <li>92270 Bois-Colombes</li>
+                        <li>Téléphone : 01 41 19 83 05</li>
+                    </ul>
                 </div>
+            </div>
+            <div class="paragraph">
                 <p>
                     ACCUEIL DE JOUR LES PIERRES VIVES.
                     <br /><br />
-                    Cette résidence fait partie de l'association Isatis (Le
-                    Kremlin-Bicêtre).
+                    La résidence Les Tilleuls propose un hébergement permanent
+                    et temporaire. Elle dispose de 80 chambres individuelles
+                    (dont 4 chambres doubles) réparties sur 4 étages. Chaque
+                    chambre est équipée d’un lit médicalisé, d’un appel-malade,
+                    d’un téléphone et d’une salle de bain adaptée.
                     <br /><br />
-                    La rue Carnot a changé d'aspect avec la résidence Ste-Marthe
-                    complètement transformée. L'établissement, conçu pour
-                    accueillir des personnes âgées dépendantes, est doté de 73
-                    chambres et deux places d'accueil de jour, de lieux de vie à
-                    tous les niveaux et de salles de détente. Il bénéficie d'un
-                    jardin jouxtant la villa du Château.
+                    Les résidents peuvent personnaliser leur chambre avec des
+                    meubles et objets personnels. Ils peuvent également recevoir
+                    leur famille et leurs amis à tout moment.
                     <br /><br />
-                    La Résidence bénéficie à la fois d'un emplacement en plein
-                    centre-ville et de l'agrément d'un jardin fleuri, apprécié
-                    par les résidents et leur famille. L'équipe soignante et
-                    administrative vous accueille avec professionnalisme et
-                    humanité, dans cet établissement associatif à but non
-                    lucratif.
+                    La résidence Les Tilleuls propose des animations et
+                    activités variées pour le bien-être des résidents. Les
+                    activités sont adaptées aux capacités et aux envies de
+                    chacun. Elles sont organisées par une animatrice et des
+                    intervenants extérieurs.
+                    <br /><br />
+                    La résidence Les Tilleuls est située à proximité du centre
+                    ville de Bois-Colombes. Elle est facilement accessible en
+                    transports en commun (bus, train) et en voiture. Elle est
+                    également proche des commerces et des services de la ville.
                 </p>
             </div>
-        </section>
-
-        <section class="specials">
-            <h2>Les établissements spécialisés</h2>
-            <div class="appart4">
-                <h2>Les Camélias</h2>
-                <div class="camelias">
-                    <img src="../../assets/camelias.png" alt="" />
-                    <p>
-                        15, rue Maurice-Pelletier <br />
-                        Tél : 01 46 52 03 16 <br />
-                    </p>
-                </div>
-                <p>
-                    ACCUEIL DE JOUR DES PERSONNES ATTEINTES DE LA MALADIE
-                    D'ALZHEIMER.
-                    <br /><br />
-                    Cette structure non médicalisée accueille à la journée des
-                    personnes atteintes de cette maladie en leur proposant un
-                    certain nombre d'activités de mobilisation et de loisirs :
-                    dessin, jeux, cuisine, promenades… Le centre accueille des
-                    hommes et des femmes de tous âges, seules les maladies
-                    invalidantes pour la vie en société (agressivité) sont
-                    exclues.
-                    <br /><br />
-                    D'une capacité maximale de 10 malades, le centre fonctionne
-                    du lundi au vendredi de 9h à 17h.
-                </p>
-            </div>
-        </section>
-
-        <ScrollToTop />
-    </section>
+        </div>
+    </div>
 
     <footer>
         <div class="footer">
@@ -260,311 +253,129 @@ export default {
 
 /* --------------- BODY --------------- */
 
-.Residences {
+.body {
+    background: linear-gradient(#ffffff, #89baad);
+    padding-inline: 160px;
+
+    h2 {
+        font-size: 34px;
+        font-family: "Raleway";
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #000000;
+        padding-bottom: 16px;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    .yellow-bar {
+        width: 10px;
+        height: 40px;
+        background-color: #fbba00;
+        transform: rotate(10deg);
+        margin-right: 10px;
+        margin-bottom: 4px;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-family: "Raleway";
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #000000;
+    }
+}
+
+.description {
     display: flex;
     flex-direction: column;
-    width: 99.7%;
-    height: 470vh;
+    justify-content: center;
+    margin-top: 50px;
 
-    .appartsHead {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .AppartTitle {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 50px;
-
-            img {
-                height: 55px;
-            }
-
-            h1 {
-                text-align: center;
-                margin-top: 2rem;
-                font-family: "Raleway";
-                font-size: 30px;
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-        }
+    h2 {
+        font-size: 34px;
+        font-family: "Raleway";
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #000000;
     }
 
-    .senior {
+    p {
+        font-size: 24px;
+        font-family: "Rubik", sans-serif;
+        color: #000000;
+    }
+}
+
+.residence {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    h3 {
+        font-size: 30px;
+        font-family: "Raleway";
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #000000;
+        padding-bottom: 48px;
+    }
+
+    .img-location {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        gap: 50px;
+        margin-top: 20px;
+        padding-bottom: 48px;
 
-        .seniorTitle {
-            display: flex;
-            flex-direction: column;
-            margin-left: 140px;
-            height: 13vh;
-            gap: 20px;
-
-            h2 {
-                display: flex;
-                font-family: "Raleway";
-                font-size: 1.5rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                align-items: center;
-                letter-spacing: 0.4px;
-            }
-
-            p {
-                display: flex;
-                justify-content: center;
-                text-align: start;
-                font-family: "Rubik", sans-serif;
-                font-size: 1.2rem;
-                width: 80%;
-            }
+        img {
+            width: 50%;
+            height: 50%;
         }
 
-        .appart1 {
-            display: flex;
-            flex-direction: column;
-            margin-top: 40px;
+        .location {
+            padding: 20px;
+            background-color: #f0f0f0;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 1px 2px 5px black;
 
-            h2 {
+            ul {
                 display: flex;
-                justify-content: center;
-                font-family: "Raleway";
-                font-size: 1.5rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                align-items: center;
-                letter-spacing: 0.4px;
-            }
-
-            .andre {
-                display: flex;
-                align-items: center;
+                flex-direction: column;
+                list-style: none;
+                font-family: "Rubik", sans-serif;
+                font-size: 24px;
+                color: #000000;
                 gap: 20px;
-                margin-top: 20px;
-                justify-content: center;
 
-                img {
-                    height: 450px;
+                li {
+                    font-weight: bold;
                 }
-
-                p {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-family: "Rubik", sans-serif;
-                    border-radius: 10px;
-                    margin-left: 5%;
-                    font-size: 1.2rem;
-                    text-align: start;
-                    background-color: #dfdbdb;
-                    width: 15%;
-                    height: 13vh;
-                }
-            }
-
-            p {
-                display: flex;
-                font-family: "Rubik", sans-serif;
-                width: 70%;
-                text-align: start;
-                align-self: center;
-                margin-top: 1.2rem;
             }
         }
     }
 
-    .medical {
-        display: flex;
-        flex-direction: column;
+    .paragraph {
         margin-top: 30px;
+        margin-bottom: 60px;
+        font-family: "Rubik", sans-serif;
+        font-size: 20px;
+        padding: 12px;
+        border-radius: 10px;
+        color: #000000;
+        background-color: #ffffff;
 
-        h2 {
-            display: flex;
-            font-family: "Raleway";
-            margin-left: 140px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            align-items: center;
-            letter-spacing: 0.4px;
-        }
-
-        .appart2 {
+        ul {
             display: flex;
             flex-direction: column;
-            margin-top: 40px;
-
-            h2 {
-                display: flex;
-                justify-content: center;
-                font-family: "Raleway";
-                font-size: 1.5rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                align-items: center;
-                letter-spacing: 0.4px;
-            }
-
-            .leopold {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                margin-top: 20px;
-                justify-content: center;
-
-                img {
-                    height: 450px;
-                }
-
-                p {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-family: "Rubik", sans-serif;
-                    border-radius: 10px;
-                    margin-left: 5%;
-                    font-size: 1.2rem;
-                    text-align: start;
-                    line-height: 1.2;
-                    background-color: #dfdbdb;
-                    width: 15%;
-                    height: 13vh;
-                }
-            }
-
-            p {
-                display: flex;
-                font-family: "Rubik", sans-serif;
-                width: 70%;
-                text-align: start;
-                align-self: center;
-                margin-top: 1.2rem;
-            }
-        }
-
-        .appart3 {
-            display: flex;
-            flex-direction: column;
-            margin-top: 40px;
-
-            h2 {
-                display: flex;
-                justify-content: center;
-                font-family: "Raleway";
-                font-size: 1.5rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                align-items: center;
-                letter-spacing: 0.4px;
-            }
-
-            .marthe {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                margin-top: 20px;
-                justify-content: center;
-
-                img {
-                    height: 450px;
-                }
-
-                p {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-family: "Rubik", sans-serif;
-                    border-radius: 10px;
-                    margin-left: 5%;
-                    font-size: 1.2rem;
-                    text-align: start;
-                    line-height: 1.2;
-                    background-color: #dfdbdb;
-                    width: 15%;
-                    height: 13vh;
-                }
-            }
-
-            p {
-                display: flex;
-                font-family: "Rubik", sans-serif;
-                width: 70%;
-                text-align: start;
-                align-self: center;
-                margin-top: 1.2rem;
-            }
-        }
-    }
-
-    .specials {
-        display: flex;
-        flex-direction: column;
-        margin-top: 30px;
-
-        h2 {
-            display: flex;
-            font-family: "Raleway";
-            margin-left: 140px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            align-items: center;
-            letter-spacing: 0.4px;
-        }
-
-        .appart4 {
-            display: flex;
-            flex-direction: column;
-            margin-top: 40px;
-
-            h2 {
-                display: flex;
-                justify-content: center;
-                font-family: "Raleway";
-                font-size: 1.2rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                align-items: center;
-                letter-spacing: 0.4px;
-            }
-
-            .camelias {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                margin-top: 20px;
-                justify-content: center;
-
-                img {
-                    height: 450px;
-                }
-
-                p {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-family: "Rubik", sans-serif;
-                    border-radius: 10px;
-                    margin-left: 5%;
-                    font-size: 18px;
-                    text-align: start;
-                    background-color: #dfdbdb;
-                    width: 15%;
-                    height: 13vh;
-                }
-            }
-
-            p {
-                display: flex;
-                font-family: "Rubik", sans-serif;
-                width: 70%;
-                text-align: start;
-                align-self: center;
-                margin-top: 1.2rem;
-            }
+            list-style: inside;
+            gap: 16px;
         }
     }
 }
