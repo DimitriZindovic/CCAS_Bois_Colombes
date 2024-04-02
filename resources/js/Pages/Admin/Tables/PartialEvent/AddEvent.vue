@@ -1,17 +1,17 @@
 <script>
 import axios from "axios";
-
+import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     data() {
         return {
-            form: {
+            form: useForm({
                 name: "",
                 description: "",
                 date: "",
                 location: "",
                 address: "",
                 image: "",
-            },
+            }),
             formRoom: {
                 name: "",
                 image: "",
@@ -21,45 +21,11 @@ export default {
     },
     methods: {
         submitForm() {
-            let formData = new FormData();
-            formData.append("name", this.form.name);
-            formData.append("description", this.form.description);
-            formData.append("date", this.form.date);
-            formData.append("location", this.form.location);
-            formData.append("address", this.form.address);
-            formData.append("image", this.$refs.image.files[0]);
-
-            axios
-                .post("/admin/dashboard/events/add", formData)
-                .then((response) => {
+            this.form.post(route("events.store"), {
+                onSuccess: () => {
                     console.log("Event created successfully!");
-                    this.$inertia.visit("/admin/dashboard/events");
-                    this.createRoom(response.data.event.id);
-                })
-                .catch((error) => {
-                    if (error.response) {
-                        console.error("Validation failed!");
-                        console.log(error.response.data.errors);
-                    }
-                });
-        },
-        createRoom(eventId) {
-            let formDataRoom = new FormData();
-            formDataRoom.append("name", this.form.name);
-            formDataRoom.append("image", this.$refs.image.files[0]);
-            formDataRoom.append("date", this.form.date);
-
-            axios
-                .post(`/admin/dashboard/rooms/add`, formDataRoom)
-                .then((response) => {
-                    console.log("Room created successfully!");
-                })
-                .catch((error) => {
-                    if (error.response) {
-                        console.error("Validation failed!");
-                        console.log(error.response.data.errors);
-                    }
-                });
+                },
+            });
         },
     },
 };
@@ -99,7 +65,12 @@ export default {
         </div>
         <div>
             <label for="image">Image</label>
-            <input id="image" type="file" ref="image" />
+            <input
+                id="image"
+                type="file"
+                ref="image"
+                @change="form.image = $refs.image.files[0]"
+            />
         </div>
         <div>
             <button type="submit">Créer</button>

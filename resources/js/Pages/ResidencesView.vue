@@ -149,26 +149,22 @@ export default {
                 <p>
                     ACCUEIL DE JOUR LES PIERRES VIVES.
                     <br /><br />
-                    La résidence Les Tilleuls propose un hébergement permanent
-                    et temporaire. Elle dispose de 80 chambres individuelles
-                    (dont 4 chambres doubles) réparties sur 4 étages. Chaque
-                    chambre est équipée d’un lit médicalisé, d’un appel-malade,
-                    d’un téléphone et d’une salle de bain adaptée.
+                    Cette résidence fait partie de l’association Isatis (Le
+                    Kremlin-Bicêtre).
                     <br /><br />
-                    Les résidents peuvent personnaliser leur chambre avec des
-                    meubles et objets personnels. Ils peuvent également recevoir
-                    leur famille et leurs amis à tout moment.
+                    La rue Carnot a changé d’aspect avec la résidence Ste-Marthe
+                    complètement transformée. L’établissement, conçu pour
+                    accueillir des personnes âgées dépendantes, est doté de 73
+                    chambres et deux places d’accueil de jour, de lieux de vie à
+                    tous les niveaux et de salles de détente. Il bénéficie d’un
+                    jardin jouxtant la villa du Château.
                     <br /><br />
-                    La résidence Les Tilleuls propose des animations et
-                    activités variées pour le bien-être des résidents. Les
-                    activités sont adaptées aux capacités et aux envies de
-                    chacun. Elles sont organisées par une animatrice et des
-                    intervenants extérieurs.
-                    <br /><br />
-                    La résidence Les Tilleuls est située à proximité du centre
-                    ville de Bois-Colombes. Elle est facilement accessible en
-                    transports en commun (bus, train) et en voiture. Elle est
-                    également proche des commerces et des services de la ville.
+                    La Résidence bénéficie à la fois d’un emplacement en plein
+                    centre-ville et de l’agrément d’un jardin fleuri, apprécié
+                    par les résidents et leur famille. L’équipe soignante et
+                    administrative vous accueille avec professionnalisme et
+                    humanité, dans cet établissement associatif à but non
+                    lucratif.
                 </p>
             </div>
         </div>
@@ -259,7 +255,7 @@ export default {
 
     h2 {
         font-size: 34px;
-        font-family: "Raleway";
+        font-family: "Open Sans";
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -284,7 +280,7 @@ export default {
 
     h1 {
         font-size: 40px;
-        font-family: "Raleway";
+        font-family: "Open Sans";
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -299,7 +295,7 @@ export default {
 
     h2 {
         font-size: 34px;
-        font-family: "Raleway";
+        font-family: "Open Sans";
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -307,7 +303,7 @@ export default {
 
     p {
         font-size: 24px;
-        font-family: "Rubik", sans-serif;
+        font-family: "Open Sans", sans-serif;
         color: #000000;
     }
 }
@@ -319,7 +315,7 @@ export default {
 
     h3 {
         font-size: 30px;
-        font-family: "Raleway";
+        font-family: "Open Sans";
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -349,7 +345,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 list-style: none;
-                font-family: "Rubik", sans-serif;
+                font-family: "Open Sans", sans-serif;
                 font-size: 24px;
                 color: #000000;
                 gap: 20px;
@@ -364,7 +360,7 @@ export default {
     .paragraph {
         margin-top: 30px;
         margin-bottom: 60px;
-        font-family: "Rubik", sans-serif;
+        font-family: "Open Sans", sans-serif;
         font-size: 20px;
         padding: 12px;
         border-radius: 10px;
