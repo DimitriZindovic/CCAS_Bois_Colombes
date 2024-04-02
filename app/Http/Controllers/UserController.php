@@ -43,7 +43,6 @@ class UserController extends Controller
 
         $domicile = $request->file('domicile_certificate')->store('public/domicile_certificates');
         $card_identity = $request->file('card_identity')->store('public/card_identities');
-
         User::create([
             'name' => $request->name,
             'surname' => $request->surname,

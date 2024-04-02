@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use App\Models\Event;
 use App\Models\Room;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -92,9 +93,10 @@ class EventController extends Controller
         return Inertia::render('Admin/Tables/Event', ['message' => 'Event deleted successfully']);
     }
 
-    public function showEvents()
+    public function dashboard(User $user = null)
     {
         $events = Event::with('room')->get();
-        return Inertia::render('Dashboard', ['events' => $events]);
+        $user = $user ? User::find($user->id) : auth()->user();
+        return Inertia::render('Dashboard', ['events' => $events, 'user' => $user]);
     }
 }

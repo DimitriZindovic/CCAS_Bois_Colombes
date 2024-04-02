@@ -61,7 +61,7 @@ a {
     color: white;
     text-decoration: none;
     font-size: 1.2em;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
     background-color: #ff801f;
     transition: 0.3s;
@@ -94,7 +94,6 @@ div {
             flex-direction: row;
             justify-content: space-between;
             padding: 10px;
-            border-bottom: 1px solid #ccc;
         }
 
         & > * {

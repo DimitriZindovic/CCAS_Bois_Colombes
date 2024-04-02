@@ -1,95 +1,134 @@
 <script setup>
-import DangerButton from '@/Components/DangerButton.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import Modal from '@/Components/Modal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { useForm } from '@inertiajs/vue3';
-import { nextTick, ref } from 'vue';
+import { useForm } from "@inertiajs/vue3";
+import { ref } from "vue";
 
-const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
 
 const form = useForm({
-    password: '',
+    password: "",
 });
 
-const confirmUserDeletion = () => {
-    confirmingUserDeletion.value = true;
-
-    nextTick(() => passwordInput.value.focus());
-};
-
 const deleteUser = () => {
-    form.delete(route('profile.destroy'), {
+    form.delete(route("profile.destroy"), {
         preserveScroll: true,
-        onSuccess: () => closeModal(),
         onError: () => passwordInput.value.focus(),
         onFinish: () => form.reset(),
     });
 };
-
-const closeModal = () => {
-    confirmingUserDeletion.value = false;
-
-    form.reset();
-};
 </script>
 
 <template>
-    <section class="space-y-6">
+    <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Delete Account</h2>
+            <h2>Supprimer le compte</h2>
 
-            <p class="mt-1 text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-                your account, please download any data or information that you wish to retain.
+            <p>
+                Une fois votre compte supprimé, toutes ses ressources et données
+                seront définitivement supprimées. Avant de supprimer votre
+                compte, veuillez télécharger toutes les données ou informations
+                que vous souhaitez conserver.
             </p>
         </header>
 
-        <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+        <div>
+            <h2>Êtes-vous sûr de vouloir supprimer votre compte ?</h2>
 
-        <Modal :show="confirmingUserDeletion" @close="closeModal">
-            <div class="p-6">
-                <h2 class="text-lg font-medium text-gray-900">
-                    Are you sure you want to delete your account?
-                </h2>
+            <p>
+                Une fois votre compte supprimé, toutes ses ressources et données
+                seront définitivement supprimées. Veuillez entrer votre mot de
+                passe pour confirmer que vous souhaitez supprimer définitivement
+                votre compte.
+            </p>
 
-                <p class="mt-1 text-sm text-gray-600">
-                    Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                    enter your password to confirm you would like to permanently delete your account.
+            <div>
+                <label for="password">Mot de passe</label>
+
+                <input
+                    id="password"
+                    ref="passwordInput"
+                    v-model="form.password"
+                    type="password"
+                    placeholder="Mot de passe"
+                    @keyup.enter="deleteUser"
+                    class="text-input"
+                />
+
+                <p v-if="form.errors.password" class="input-error">
+                    Veuillez entrer votre mot de passe.
                 </p>
-
-                <div class="mt-6">
-                    <InputLabel for="password" value="Password" class="sr-only" />
-
-                    <TextInput
-                        id="password"
-                        ref="passwordInput"
-                        v-model="form.password"
-                        type="password"
-                        class="mt-1 block w-3/4"
-                        placeholder="Password"
-                        @keyup.enter="deleteUser"
-                    />
-
-                    <InputError :message="form.errors.password" class="mt-2" />
-                </div>
-
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
-
-                    <DangerButton
-                        class="ms-3"
-                        :class="{ 'opacity-25': form.processing }"
-                        :disabled="form.processing"
-                        @click="deleteUser"
-                    >
-                        Delete Account
-                    </DangerButton>
-                </div>
             </div>
-        </Modal>
+
+            <div>
+                <button
+                    class="danger-button"
+                    :disabled="form.processing"
+                    @click="deleteUser"
+                >
+                    Supprimer le compte
+                </button>
+            </div>
+        </div>
     </section>
 </template>
+
+<style scoped lang="scss">
+section {
+    header {
+        h2 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        p {
+            margin-top: 1.5em;
+            color: #666;
+        }
+    }
+
+    .danger-button {
+        padding: 0.5em 1em;
+        background-color: #f00;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.2em;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    div {
+        margin-top: 3em;
+
+        h2 {
+            font-size: 1.6em;
+            color: #333;
+        }
+
+        p {
+            margin-top: 1.5em;
+            color: #666;
+        }
+
+        div {
+            margin-top: 1.5em;
+
+            .text-input {
+                display: block;
+                width: 100%;
+                padding: 1em;
+                border: 2px solid #ccc;
+                border-radius: 6px;
+            }
+
+            .input-error {
+                color: #f00;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+</style>
