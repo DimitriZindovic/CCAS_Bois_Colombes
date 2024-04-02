@@ -24,6 +24,7 @@ export default {
 
         <div class="residence">
             <h3>La résidence André-Chénier</h3>
+            <div class="first-circle"</div>
             <div class="img-location">
                 <img
                     src="../../assets/andre.png"
@@ -85,6 +86,7 @@ export default {
                     src="../../assets/leopold.png"
                     alt="Photo résidence Léopold Bellan"
                 />
+                <div class="second-circle"</div>
                 <div class="location">
                     <ul>
                         <li>Adresse : 17, avenue Charles-de-Gaulle</li>
@@ -168,11 +170,45 @@ export default {
                 </p>
             </div>
         </div>
+        <h2>Les résidences spécialisées</h2>
+        <div class="residence">
+            <h3>Les Camélias</h3>
+            <div class="img-location">
+                <img
+                    src="../../assets/camelias.png"
+                    alt="Photo résidence Les Jardins de la Châtaigneraie"
+                />
+                <div class="location">
+                    <ul>
+                        <li>Adresse : 15, rue Maurice-Pelletier</li>
+                        <li>92270 Bois-Colombes</li>
+                        <li>Téléphone : 01 46 52 03 16</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="paragraph">
+                <p>
+                    ACCUEIL DE JOUR DES PERSONNES ATTEINTES DE LA MALADIE
+                    D'ALZHEIMER.
+                    <br /><br />
+                    Cette structure non médicalisée accueille à la journée des
+                    personnes atteintes de cette maladie en leur proposant un
+                    certain nombre d’activités de mobilisation et de loisirs :
+                    dessin, jeux, cuisine, promenades… Le centre accueille des
+                    hommes et des femmes de tous âges, seules les maladies
+                    invalidantes pour la vie en société (agressivité) sont
+                    exclues.
+                    <br /><br />
+                    D’une capacité maximale de 10 malades, le centre fonctionne
+                    du lundi au vendredi de 9h à 17h.
+                </p>
+            </div>
+        </div>
     </div>
 
     <footer>
         <div class="footer">
-            <!-- <img src="img/balancoire.png" alt="" class="balancoire"> -->
+            <img src="../../assets/balancoire.png" alt="" class="balancoire" />
             <section class="footer1">
                 <div class="coordonnees">
                     <h2>Coordonnées</h2>
@@ -239,7 +275,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100&display=swap");
 
 /* --------------- HEADER --------------- */
 
@@ -250,12 +286,16 @@ export default {
 /* --------------- BODY --------------- */
 
 .body {
-    background: linear-gradient(#ffffff, #89baad);
+    background-image: url("../../assets/background-residence.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-color: #89baad;
     padding-inline: 160px;
 
     h2 {
         font-size: 34px;
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -267,7 +307,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    padding-top: 50px;
 
     .yellow-bar {
         width: 10px;
@@ -280,7 +320,7 @@ export default {
 
     h1 {
         font-size: 40px;
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -295,7 +335,7 @@ export default {
 
     h2 {
         font-size: 34px;
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
@@ -315,11 +355,35 @@ export default {
 
     h3 {
         font-size: 30px;
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
         color: #000000;
         padding-bottom: 48px;
+    }
+
+    .first-circle {
+        width: 200px;
+        height: 200px;
+        background-color: #89BAAD;
+        border-radius: 100px;
+
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 670px;
+        z-index: 0;
+    }
+
+    .second-circle {
+        width: 550px;
+        height: 550px;
+        background-color: #89BAAD;
+        border-radius: 300px;
+
+        position: absolute;
+        margin-top: -50px;
+        margin-left: -250px;
+        z-index: -1;
     }
 
     .img-location {
@@ -328,10 +392,10 @@ export default {
         gap: 50px;
         margin-top: 20px;
         padding-bottom: 48px;
+        z-index: 1;
 
         img {
-            width: 50%;
-            height: 50%;
+            width: 820px;
         }
 
         .location {
@@ -382,13 +446,19 @@ export default {
     display: flex;
     flex-direction: column;
 
+    .balancoire {
+        width: 10%;
+        position: absolute;
+    }
+
     .footer1 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        height: 45vh;
+        height: 50vh;
         background-color: #1f266b;
         color: #ffffff;
         font-size: 15px;
+        padding-inline: 80px;
 
         .coordonnees {
             grid-column: 1 / 2;
@@ -397,8 +467,8 @@ export default {
             margin-top: 20px;
 
             h2 {
-                font-size: 1.5rem;
-                font-family: "Raleway";
+                font-size: 22px;
+                font-family: "Open Sans", sans-serif;
                 text-transform: uppercase;
                 font-weight: bold;
                 margin-bottom: 15px;
@@ -406,14 +476,15 @@ export default {
                 text-decoration-color: #fbba00;
                 text-decoration-thickness: 2px;
                 text-underline-offset: 5px;
-                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-bottom: 60px;
             }
 
             ul {
                 display: flex;
                 flex-direction: column;
                 list-style: inside;
-                font-family: "Rubik", sans-serif;
+                font-family: "Open Sans", sans-serif;
                 font-size: 1.2rem;
                 gap: 30px;
                 align-items: start;
@@ -435,8 +506,8 @@ export default {
             margin-top: 20px;
 
             h2 {
-                font-size: 1.5rem;
-                font-family: "Raleway";
+                font-size: 22px;
+                font-family: "Open Sans", sans-serif;
                 text-transform: uppercase;
                 font-weight: bold;
                 margin-bottom: 15px;
@@ -444,14 +515,15 @@ export default {
                 text-decoration-color: #fbba00;
                 text-decoration-thickness: 2px;
                 text-underline-offset: 5px;
-                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-bottom: 60px;
             }
 
             ul {
                 display: flex;
                 flex-direction: column;
                 list-style: inside;
-                font-family: "Rubik", sans-serif;
+                font-family: "Open Sans", sans-serif;
                 font-size: 1.2rem;
                 gap: 30px;
                 align-items: start;
@@ -469,23 +541,24 @@ export default {
             margin-top: 20px;
 
             h2 {
-                font-size: 20px;
-                font-family: "Raleway";
+                font-size: 22px;
+                font-family: "Open Sans", sans-serif;
                 text-transform: uppercase;
                 font-weight: bold;
-                margin-bottom: 1.5rem;
+                margin-bottom: 15px;
                 text-decoration: underline;
                 text-decoration-color: #fbba00;
                 text-decoration-thickness: 2px;
                 text-underline-offset: 5px;
-                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-bottom: 60px;
             }
 
             ul {
                 display: flex;
                 flex-direction: column;
                 list-style: inside;
-                font-family: "Rubik", sans-serif;
+                font-family: "Open Sans", sans-serif;
                 font-size: 1.2rem;
                 gap: 30px;
                 align-items: start;
@@ -502,8 +575,7 @@ export default {
         height: 10vh;
         width: 100%;
         background-color: #89baad;
-        font-size: 1.3rem;
-        font-family: "Rubik", sans-serif;
+        font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
         color: #1f266b;
@@ -533,4 +605,183 @@ export default {
         height: 7.2vh;
     }
 }
+
+@media (max-width: 1024px) {
+    .body {
+        padding-inline: 20px;
+    }
+
+    .title {
+        padding-top: 20px;
+        padding-inline: 20px;
+    }
+
+    .description {
+        padding-inline: 20px;
+    }
+
+    .residence {
+        padding-inline: 20px;
+
+        .img-location {
+            flex-direction: column;
+
+            img {
+                width: 80%;
+            }
+
+            // .location {
+            //     width: 45%;
+            // }
+        }
+    }
+
+    .footer {
+        .balancoire {
+            display: none;
+        }
+
+        .footer1 {
+            padding-inline: 20px;
+
+            .coordonnees {
+                h2 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .autre {
+                h2 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .suivre {
+                h2 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            ul {
+                gap: 10px;
+            }
+
+            li {
+                gap: 10px;
+            }
+        }
+
+        .footer2 {
+            padding-inline: 20px;
+        }
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .location {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        h1 {
+            font-size: 30px;
+        }
+    }
+
+    .description {
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .residence {
+        h3 {
+            font-size: 20px;
+        }
+
+        .paragraph {
+            font-size: 14px;
+        }
+    }
+
+    .body {
+        h2 {
+            font-size: 24px;
+        }
+    }
+
+    .location {
+        width: 100%;
+
+        ul {
+            width: 200px;
+        }
+        li {
+            font-size: 14px;
+        }
+    }
+
+    .first-circle {
+        display: none;
+    }
+
+    .second-circle {
+        display: none;
+    }
+
+    .footer {
+        .footer1 {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+            padding-bottom: 40px;
+            padding-left: 40px;
+
+            .coordonnees {
+                ul {
+                    gap: 10px;
+                }
+            }
+
+            .autre {
+                ul {
+                    gap: 10px;
+                }
+            }
+
+            .suivre {
+                ul {
+                    gap: 10px;
+                }
+            }
+        }
+
+        .footer2 {
+            height: auto;
+            div {
+                justify-content: none;
+                height: auto;
+                width: auto;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    padding-block: 20px;
+                }
+            }
+        }
+    }
+}
+
 </style>
