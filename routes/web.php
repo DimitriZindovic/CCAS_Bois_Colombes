@@ -52,21 +52,20 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/dashboard/users/update/{user}', [UserController::class, 'update'])
         ->name('updateUser');
 
-    Route::get(
-        '/admin/dashboard/users/add',
-        [UserController::class, 'showPage']
-    )->name('addUser');
+    Route::get('/admin/dashboard/users/add', [UserController::class, 'showPage'])
+        ->name('addUser');
+
     Route::post('/admin/dashboard/users/add', [UserController::class, 'store'])
         ->name('addUser');
 
     Route::get('/admin/dashboard', [AuthenticatedSessionController::class, 'adminDashboard'])
         ->name('admin.dashboard');
 
-    Route::get('/events/create', [EventController::class, 'create'])
-        ->name('events');
-
     Route::get('/admin/dashboard/events', [EventController::class, 'index'])
-        ->name('events');
+        ->name('event');
+
+    Route::get('/events/create', [EventController::class, 'create'])
+        ->name('event');
 
     Route::get('/admin/dashboard/events/add', [EventController::class, 'showPage'])
         ->name('addEvent');

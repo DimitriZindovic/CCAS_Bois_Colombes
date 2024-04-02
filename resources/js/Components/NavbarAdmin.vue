@@ -4,7 +4,7 @@ import { Link } from "@inertiajs/vue3";
 <template>
     <nav>
         <Link :href="route('user')">Utilisateurs</Link>
-        <Link :href="route('events')">Évènements</Link>
+        <Link :href="route('event')">Évènements</Link>
         <Link :href="route('chatRooms')">Salles</Link>
     </nav>
 </template>
