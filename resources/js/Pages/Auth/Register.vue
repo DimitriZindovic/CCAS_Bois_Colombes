@@ -86,7 +86,33 @@ export default {
 </script>
 
 <template>
-    <hr class="hrHead" />
+    <div class="header">
+        <div class="menu">
+            <ul>
+                <li>
+                    <img
+                        src="../../../assets/logo_ccas.png"
+                        alt="Logo Bois-Colombes"
+                    />
+                </li>
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                <li>
+                    <a href="/se-faire-aider">Se faire aider</a>
+                </li>
+                <li>
+                    <a href="/residences-et-etablissements">Résidence</a>
+                </li>
+                <li>
+                    <a href="/sorties-du-ccas">Sorties</a>
+                </li>
+                <li>
+                    <a href="/register">Se signaler</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <section class="imgActus">
         <img
             src="../../../assets/actus_bois_colombes.png"
@@ -460,8 +486,45 @@ export default {
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
-.hrHead {
+/* --------------- HEADER --------------- */
+
+.header {
+    display: flex;
     border-bottom: 3px solid #89baad;
+
+    .menu {
+        width: 100%;
+        padding-inline: 140px;
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            list-style: none;
+            font-family: "Open Sans", sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: #000000;
+            padding-block: 20px;
+
+            li {
+                img {
+                    width: 200px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #000000;
+                }
+
+                a:hover {
+                    color: #fbba00;
+                    text-decoration: underline;
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
 }
 
 /* BODY */
@@ -1091,6 +1154,17 @@ export default {
 /* RESPONSIVE */
 
 @media (max-width: 1024px) {
+    .header {
+        .menu {
+            padding-inline: 40px;
+
+            ul {
+                gap: 30px;
+                font-size: 24px;
+            }
+        }
+    }
+    
     .imgActus {
         display: flex;
 
