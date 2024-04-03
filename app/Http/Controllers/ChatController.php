@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use App\Models\Chat;
 use App\Models\Room;
@@ -23,20 +24,29 @@ class ChatController extends Controller
     {
         return Inertia::render('Rooms');
     }
+
     public function store(Request $request, Room $room)
     {
         $request->validate([
-            'message' => 'required|string|max:255',
+            'message' => 'required|string|max:1000',
+            // 'image' => 'string|max:2048',
         ], [
             'message.required' => 'Le champ message est requis.',
+            // 'image.required' => 'Le champ image est requis.',
+            // 'image.file' => 'Le champ image doit être un fichier.',
+            // 'image.max' => 'Le fichier image de carte ne doit pas dépasser 2 Mo.',
         ]);
+
+        $image = $request->hasFile('image') ? Storage::put('public/images', $request->file('image')) : null;
+
         Chat::create([
             'message' => $request->message,
+            'image' => str_replace('public/', '', $image),
             'user_id' => auth()->id(),
             'room_id' => $room->id,
         ]);
 
-        // return redirect()->route('chats.index', ['room' => $room->id]);
+        return Inertia::render('Admin/Tables/Chat', ['message' => 'Chat created successfully']);
     }
 
     public function showChat($id)

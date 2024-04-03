@@ -138,7 +138,7 @@ div {
         overflow: auto;
 
         .user-item {
-            max-width: calc(100% / 8 - 10px);
+            max-width: calc(100% / 11 - 10px);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
