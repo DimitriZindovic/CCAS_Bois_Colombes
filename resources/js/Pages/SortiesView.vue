@@ -8,8 +8,8 @@ export default {
     <hr class="hrHead" />
 
     <div class="body">
+        <div class="yellow-bar"></div>
         <div class="title">
-            <div class="yellow-bar"></div>
             <h1>Les sorties du CCAS</h1>
         </div>
 
