@@ -5,6 +5,33 @@ export default {
 </script>
 
 <template>
+    <div class="header">
+        <div class="menu">
+            <ul>
+                <li>
+                    <img
+                        src="../../assets/logo_ccas.png"
+                        alt="Logo Bois-Colombes"
+                    />
+                </li>
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                <li>
+                    <a href="/se-faire-aider">Se faire aider</a>
+                </li>
+                <li>
+                    <a href="/residences-et-etablissements">Résidence</a>
+                </li>
+                <li>
+                    <a href="/sorties-du-ccas">Sorties</a>
+                </li>
+                <li>
+                    <a href="/register">Se signaler</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="body">
         <div class="title">
             <div class="yellow-bar"></div>
@@ -220,8 +247,43 @@ export default {
 
 /* --------------- HEADER --------------- */
 
-.hrHead {
+.header {
+    display: flex;
     border-bottom: 3px solid #89baad;
+
+    .menu {
+        width: 100%;
+        padding-inline: 140px;
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            list-style: none;
+            font-family: "Open Sans", sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: #000000;
+            padding-block: 20px;
+
+            li {
+                img {
+                    width: 200px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #000000;
+                }
+
+                a:hover {
+                    color: #fbba00;
+                    text-decoration: underline;
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
 }
 
 /* --------------- BODY --------------- */
@@ -597,6 +659,16 @@ export default {
 }
 
 @media (max-width: 1440px) and (min-width: 1024px) {
+    .header {
+        .menu {
+            padding-inline: 100px;
+
+            ul {
+                gap: 50px;
+            }
+        }
+    }
+
     .body {
         padding-inline: 100px;
     }
@@ -633,6 +705,17 @@ export default {
 }
 
 @media (max-width: 1024px) {
+    .header {
+        .menu {
+            padding-inline: 40px;
+
+            ul {
+                gap: 30px;
+                font-size: 24px;
+            }
+        }
+    }
+
     .body {
         padding-inline: 20px;
 

@@ -84,6 +84,7 @@ export default {
     },
 };
 </script>
+
 <template>
     <hr class="hrHead" />
     <section class="imgActus">
@@ -196,12 +197,19 @@ export default {
                         Envoyez-le par mail, accompagné des scans des pièces
                         demandées :
                         <br /><br />
-                        une pièce d'identité
+                        • une pièce d'identité
                         <br />
-                        un justificatif de domicile.
+                        • un justificatif de domicile.
                         <br /><br />
-                        ccas@bois-colombes.com
-                        <br /><br />
+                    </p>
+
+                    <div class="email">
+                        <img src="../../../assets/mail.png" alt="" />
+                        <p>ccas@bois-colombes.com</p>
+                    </div>
+
+                    <br /><br />
+                    <p>
                         Le CCAS vous confirmera par retour de mail votre
                         inscription.
                     </p>
@@ -222,6 +230,7 @@ export default {
 
         <section class="form">
             <h2>Formulaire de demande d'inscription en ligne</h2>
+
             <div class="donnees">
                 <h3>Informatisation de vos données personnelles</h3>
                 <p>
@@ -235,93 +244,152 @@ export default {
                     concernant, les rectifier ou retirer votre consentement en
                     envoyant une demande au service (ccas@bois-colombes.com).
                 </p>
+
+                <form
+                    @submit.prevent="submitForm"
+                    enctype="multipart/form-data"
+                >
+                    <section class="section">
+                        <div>
+                            <label for="name">Nom</label>
+                            <input
+                                id="name"
+                                type="text"
+                                v-model="form.name"
+                                required
+                                autofocus
+                            />
+                        </div>
+
+                        <div>
+                            <label for="surname">Prénom</label>
+                            <input
+                                id="surname"
+                                type="text"
+                                v-model="form.surname"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="birth">Date de naissance</label>
+                            <input
+                                id="birth"
+                                type="date"
+                                v-model="form.birth"
+                                required
+                            />
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <div>
+                            <label for="address">Adresse</label>
+                            <input
+                                id="address"
+                                type="text"
+                                v-model="form.address"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="city">Ville</label>
+                            <input
+                                id="city"
+                                type="text"
+                                v-model="form.city"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="phone">Téléphone</label>
+                            <input
+                                id="phone"
+                                type="tel"
+                                v-model="form.phone"
+                                required
+                            />
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <div>
+                            <label for="email">Adresse Email</label>
+                            <input
+                                id="email"
+                                type="email"
+                                v-model="form.email"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="password">Mot de passe</label>
+                            <input
+                                id="password"
+                                type="password"
+                                v-model="form.password"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="password_confirmation"
+                                >Confirmer le mot de passe</label
+                            >
+                            <input
+                                id="password_confirmation"
+                                type="password"
+                                v-model="form.password_confirmation"
+                                required
+                            />
+                        </div>
+                    </section>
+
+                    <section class="files">
+                        <div>
+                            <label for="card_identity">Carte d'identité</label>
+                            <input
+                                type="file"
+                                id="card_identity"
+                                name="card_identity"
+                                accept=".pdf"
+                                ref="card_identity"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="domicile_certificate"
+                                >Justificatif de domicile :</label
+                            >
+                            <input
+                                type="file"
+                                id="domicile_certificate"
+                                ref="domicile_certificate"
+                                required
+                            />
+                        </div>
+                    </section>
+
+                    <div class="sign">
+                        <label for="signature">Signature :</label>
+                        <vue-signature-pad
+                            id="signature"
+                            ref="signature"
+                            required
+                        ></vue-signature-pad>
+                    </div>
+
+                    <div>
+                        <button type="submit">S'inscrire</button>
+                    </div>
+                </form>
             </div>
         </section>
     </section>
-    <form @submit.prevent="submitForm" enctype="multipart/form-data">
-        <div>
-            <label for="name">Nom</label>
-            <input
-                id="name"
-                type="text"
-                v-model="form.name"
-                required
-                autofocus
-            />
-        </div>
-        <div>
-            <label for="surname">Prénom</label>
-            <input id="surname" type="text" v-model="form.surname" required />
-        </div>
-        <div>
-            <label for="birth">Date de naissance</label>
-            <input id="birth" type="date" v-model="form.birth" required />
-        </div>
-        <div>
-            <label for="address">Adresse</label>
-            <input id="address" type="text" v-model="form.address" required />
-        </div>
-        <div>
-            <label for="city">Ville</label>
-            <input id="city" type="text" v-model="form.city" required />
-        </div>
-        <div>
-            <label for="phone">Téléphone</label>
-            <input id="phone" type="tel" v-model="form.phone" required />
-        </div>
-        <div>
-            <label for="card_identity">Identité de carte</label>
-            <input
-                type="file"
-                id="card_identity"
-                name="card_identity"
-                accept=".pdf"
-                ref="card_identity"
-            />
-        </div>
-        <div>
-            <label for="email">Adresse Email</label>
-            <input id="email" type="email" v-model="form.email" required />
-        </div>
-        <div>
-            <label for="password">Mot de passe</label>
-            <input
-                id="password"
-                type="password"
-                v-model="form.password"
-                required
-            />
-        </div>
-        <div>
-            <label for="password_confirmation">Confirmer le mot de passe</label>
-            <input
-                id="password_confirmation"
-                type="password"
-                v-model="form.password_confirmation"
-                required
-            />
-        </div>
-        <div>
-            <label for="domicile_certificate">Certificat de domicile :</label>
-            <input
-                type="file"
-                id="domicile_certificate"
-                ref="domicile_certificate"
-                required
-            />
-        </div>
-        <div>
-            <label for="signature">Signature :</label>
-            <vue-signature-pad
-                id="signature"
-                ref="signature"
-                required
-            ></vue-signature-pad>
-        </div>
-        <div>
-            <button type="submit">S'inscrire</button>
-        </div>
-    </form>
+
     <footer>
         <div class="footer">
             <section class="footer1">
@@ -388,6 +456,7 @@ export default {
         <ScrollToTop />
     </footer>
 </template>
+
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
@@ -398,10 +467,8 @@ export default {
 /* BODY */
 
 .imgActus {
-    display: flex;
-
     img {
-        height: 682.8px;
+        width: 100%;
     }
 }
 
@@ -412,7 +479,7 @@ export default {
     .ActusTitle {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 50px;
         margin-bottom: 25px;
 
         img {
@@ -441,7 +508,6 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 20px;
         height: 100vh;
 
         h2 {
@@ -452,7 +518,7 @@ export default {
             text-transform: uppercase;
             align-items: center;
             letter-spacing: 0.4px;
-            margin-left: 140px;
+            margin-left: 210px;
         }
 
         .inscriTxt {
@@ -460,9 +526,8 @@ export default {
             justify-content: center;
             margin-top: 20px;
             width: 100%;
+            gap: 16vw;
             height: 400px;
-            font-family: "Rubik", sans-serif;
-            font-weight: 400;
 
             ul {
                 display: flex;
@@ -489,7 +554,6 @@ export default {
             img {
                 height: 350px;
                 float: right;
-                margin-left: 400px;
                 margin-top: 5%;
             }
         }
@@ -506,6 +570,7 @@ export default {
                 font-size: 1.2rem;
                 text-align: start;
                 margin-left: 210px;
+                margin-top: 20px;
                 font-family: "Rubik", sans-serif;
             }
 
@@ -515,14 +580,12 @@ export default {
                 list-style: inside;
                 font-family: "Rubik", sans-serif;
                 text-align: start;
+                font-size: 1.2rem;
                 margin-left: 210px;
                 margin-top: 20px;
-                width: 340px;
-                gap: 2px;
 
                 li {
                     gap: 20px;
-                    width: 330px;
                     line-height: 1.2;
                 }
 
@@ -536,7 +599,7 @@ export default {
     .contrat {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 140vh;
 
         .contratTitle {
             display: flex;
@@ -564,9 +627,12 @@ export default {
 
             .download {
                 display: flex;
+                gap: 20px;
 
                 .hrDownload1 {
                     border: 2px solid #fbba00;
+                    rotate: 90deg;
+                    margin-right: 20px;
                 }
 
                 button {
@@ -584,127 +650,281 @@ export default {
 
                 .hrDownload2 {
                     border: 2px solid #fbba00;
+                    rotate: 90deg;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .method1 {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            h2 {
+                display: flex;
+                font-family: "Raleway";
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.4px;
+                margin-bottom: 40px;
+                justify-content: center;
+            }
+
+            .enLigne {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: rgb(225, 225, 225);
+                border-radius: 10px;
+                height: 30vh;
+                width: 70%;
+
+                h4 {
+                    display: flex;
+                    font-family: "Raleway";
+                    margin-left: 60px;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: start;
+                    margin-left: 60px;
+                    font-family: "Rubik", sans-serif;
+                }
+            }
+        }
+
+        .method2 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            text-align: start;
+            height: 60vh;
+            margin-left: 15%;
+            margin-right: 15%;
+
+            .mail {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: #89baad;
+                border-radius: 10px;
+                width: 100%;
+                height: 60vh;
+
+                h4 {
+                    font-family: "Raleway";
+                    color: #1f266b;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-left: 1.3rem;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: start;
+                    margin-left: 20px;
+                    font-family: "Rubik", sans-serif;
+                }
+
+                .mail {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 80%;
+                    margin-left: 1vw;
+                    height: 30px;
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 20px;
+                        font-family: "Rubik", sans-serif;
+                    }
+
+                    img {
+                        width: 4%;
+                    }
+                }
+            }
+
+            .accueil {
+                display: flex;
+                flex-direction: column;
+                background-color: #89baad;
+                border-radius: 10px;
+                width: 100%;
+                height: 60vh;
+
+                h4 {
+                    font-family: "Raleway";
+                    color: #1f266b;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-left: 10px;
+                    margin-top: 26px;
+                    margin-bottom: 20px;
+                }
+
+                h5 {
+                    font-family: "Raleway";
+                    color: #1f266b;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    margin-left: 10px;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: start;
+                    margin-left: 10px;
+                    font-family: "Rubik", sans-serif;
                 }
             }
         }
     }
 
-    .method1 {
+    .form {
+        /* SECTION FORMULAIRE */
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 40px;
+        height: 140vh;
 
         h2 {
-            display: flex;
+            /* FORMULAIRE DE DEMANDE D'INSCRIPTION EN LIGNE */
             font-family: "Raleway";
             font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
-            margin-bottom: 40px;
-            justify-content: center;
+            align-items: center;
+            margin-left: 210px;
+            margin-bottom: 30px;
         }
 
-        .enLigne {
+        .donnees {
+            /* FORMULAIRE */
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            width: 80%;
+            background-color: #ced6d4;
             margin-left: auto;
             margin-right: auto;
-            background-color: rgb(225, 225, 225);
-            border-radius: 10px;
-            height: 25vh;
-            width: 70%;
+            border-radius: 30px;
+            height: 128vh;
 
-            h4 {
+            h3 {
+                /* INFORMATION DE VOS DONNÉES PERSONNELLES */
+                font-family: "Raleway";
+                font-size: 1.3rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-left: 120px;
+                margin-top: 20px;
+            }
+
+            p {
+                font-size: 1.2rem;
+                font-family: "Rubik", sans-serif;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 120px;
+                width: 82%;
+            }
+
+            form {
                 display: flex;
-                font-family: "Raleway";
-                margin-left: 60px;
-                font-size: 1.3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-bottom: 20px;
-            }
+                flex-direction: column;
+                margin-left: 120px;
+                margin-right: 120px;
+                gap: 20px;
 
-            p {
-                font-size: 1.2rem;
-                text-align: start;
-                margin-left: 60px;
-                font-family: "Rubik", sans-serif;
-            }
-        }
-    }
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
 
-    .method2 {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 15px;
-        text-align: start;
-        height: 40vh;
-        margin-left: 15%;
-        margin-right: 15%;
+                    label {
+                        font-family: "Raleway";
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                    }
 
-        .mail {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #89baad;
-            border-radius: 10px;
-            width: 100%;
+                    input {
+                        font-family: "Rubik", sans-serif;
+                        font-size: 1.2rem;
+                        padding: 10px;
+                        border-radius: 10px;
+                        border: 1px solid #1f266b;
+                    }
 
-            h4 {
-                font-family: "Raleway";
-                color: #1f266b;
-                font-size: 20px;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-left: 1.3rem;
-            }
+                    input[type="file"] {
+                        padding: 10px;
+                        border-radius: 10px;
+                        border: 1px solid #1f266b;
+                    }
 
-            p {
-                font-size: 1.2rem;
-                text-align: start;
-                margin-left: 20px;
-                font-family: "Rubik", sans-serif;
-            }
-        }
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        margin-left: auto;
+                        margin-right: auto;
+                        background-color: #fbba00;
+                        color: black;
+                        font-family: "Rubik", sans-serif;
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        padding: 10px;
+                        border: none;
+                        width: 30%;
+                        border-radius: 30px;
+                        cursor: pointer;
+                    }
+                }
 
-        .accueil {
-            display: flex;
-            flex-direction: column;
-            background-color: #89baad;
-            border-radius: 10px;
-            width: 100%;
+                .sign {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    background-color: white;
+                    border-radius: 20px;
 
-            h4 {
-                font-family: "Raleway";
-                color: #1f266b;
-                font-size: 1.3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-left: 20px;
-                margin-top: 18px;
-            }
+                    label {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: "Raleway";
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        height: 50px;
+                        background-color: #c2c2c5;
+                        border-top-left-radius: 20px;
+                        border-top-right-radius: 20px;
+                    }
+                }
 
-            h5 {
-                font-family: "Raleway";
-                color: #1f266b;
-                font-size: 1rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-left: 20px;
-                width: 80%;
-            }
-
-            p {
-                font-size: 1.2rem;
-                text-align: start;
-                margin-left: 20px;
-                font-family: "Rubik", sans-serif;
-                width: 70%;
+                section {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 20px;
+                }
             }
         }
     }
@@ -836,7 +1056,7 @@ export default {
         height: 10vh;
         width: 100%;
         background-color: #89baad;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-family: "Rubik", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
@@ -865,6 +1085,1223 @@ export default {
 
     .scroll {
         height: 7.2vh;
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .imgActus {
+        display: flex;
+
+        img {
+            height: 407px;
+        }
+    }
+
+    .seSignaler {
+        display: flex;
+        flex-direction: column;
+
+        .ActusTitle {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 25px;
+
+            img {
+                width: 18px;
+                margin-top: 10px;
+            }
+
+            h1 {
+                /* TITRE se signaler au ccas */
+                text-align: center;
+                margin-top: 15px;
+                font-family: "Raleway";
+                font-size: 2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
+        .hrActus {
+            border: 2px solid #070707;
+            margin-left: auto;
+            margin-right: auto;
+            width: 84%;
+        }
+
+        .inscription {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+
+            h2 {
+                display: flex;
+                justify-content: center;
+                font-family: "Raleway";
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                align-items: center;
+                letter-spacing: 0.4px;
+                margin-left: 0px;
+            }
+
+            .inscriTxt {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                gap: 5vw;
+                height: 400px;
+                margin-top: 0px;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    text-align: start;
+                    margin-top: 0px;
+                    font-size: 1.2rem;
+                    width: 340px;
+                    gap: 2px;
+
+                    li {
+                        gap: 20px;
+                        width: 330px;
+                        line-height: 1.2;
+                    }
+
+                    li::marker {
+                        color: rgb(2, 2, 2);
+                    }
+                }
+
+                img {
+                    height: 250px;
+                    float: right;
+                    margin-top: 0%;
+                }
+            }
+
+            .inscriTxt2 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                width: 100%;
+                font-family: "Rubik", sans-serif;
+                font-weight: 400;
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: start;
+                    margin-left: 120px;
+                    margin-top: 20px;
+                    font-family: "Rubik", sans-serif;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    text-align: start;
+                    font-size: 1.2rem;
+                    margin-left: 120px;
+                    margin-top: 20px;
+
+                    li {
+                        gap: 20px;
+                        line-height: 1.2;
+                    }
+
+                    li::marker {
+                        color: rgb(2, 2, 2);
+                    }
+                }
+            }
+        }
+
+        .contrat {
+            display: flex;
+            flex-direction: column;
+            height: 150vh;
+            justify-content: center;
+
+            .contratTitle {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #1f266b;
+                height: 30vh;
+                gap: 20px;
+
+                h3 {
+                    font-family: "Raleway";
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    align-items: center;
+                    color: white;
+                }
+
+                p {
+                    font-family: "Rubik", sans-serif;
+                    font-size: 1.2rem;
+                    color: white;
+                }
+
+                .download {
+                    display: flex;
+                    gap: 20px;
+
+                    .hrDownload1 {
+                        border: 2px solid #fbba00;
+                        rotate: 90deg;
+                        margin-right: 20px;
+                    }
+
+                    button {
+                        background-color: #fbba00;
+                        color: black;
+                        font-family: "Rubik", sans-serif;
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 30px;
+                        cursor: pointer;
+                    }
+
+                    .hrDownload2 {
+                        border: 2px solid #fbba00;
+                        rotate: 90deg;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .method1 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                h2 {
+                    display: flex;
+                    font-family: "Raleway";
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.4px;
+                    margin-bottom: 40px;
+                    justify-content: center;
+                }
+
+                .enLigne {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: rgb(225, 225, 225);
+                    border-radius: 10px;
+                    height: 30vh;
+                    width: 70%;
+
+                    h4 {
+                        display: flex;
+                        font-family: "Raleway";
+                        margin-left: 30px;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 30px;
+                        font-family: "Rubik", sans-serif;
+                    }
+                }
+            }
+
+            .method2 {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 15px;
+                text-align: start;
+                height: 60vh;
+                margin-left: 15%;
+                margin-right: 15%;
+
+                .mail {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: #89baad;
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 60vh;
+
+                    h4 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-left: 1.3rem;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 20px;
+                        width: 95%;
+                        font-family: "Rubik", sans-serif;
+                    }
+
+                    .email {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        width: 80%;
+                        margin-left: 1.4vw;
+                        height: 30px;
+
+                        p {
+                            font-size: 1.2rem;
+                            text-align: start;
+                            margin-left: 20px;
+                            font-family: "Rubik", sans-serif;
+                        }
+
+                        img {
+                            width: 8%;
+                        }
+                    }
+                }
+
+                .accueil {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #89baad;
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 60vh;
+
+                    h4 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-left: 10px;
+                        margin-top: 18px;
+                        margin-bottom: 20px;
+                    }
+
+                    h5 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        margin-left: 10px;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 10px;
+                        font-family: "Rubik", sans-serif;
+                    }
+                }
+            }
+        }
+
+        .form {
+            /* SECTION FORMULAIRE */
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+            height: 135vh;
+
+            h2 {
+                /* FORMULAIRE DE DEMANDE D'INSCRIPTION EN LIGNE */
+                display: flex;
+                justify-content: center;
+                font-family: "Raleway";
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                align-items: center;
+                margin-left: 0px;
+                margin-bottom: 30px;
+            }
+
+            .donnees {
+                /* FORMULAIRE */
+                display: flex;
+                flex-direction: column;
+                width: 85%;
+                background-color: #ced6d4;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 30px;
+                height: 100vh;
+
+                h3 {
+                    /* INFORMATION DE VOS DONNÉES PERSONNELLES */
+                    display: flex;
+                    justify-content: center;
+                    font-family: "Raleway";
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-left: 0px;
+                    margin-top: 20px;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    font-family: "Rubik", sans-serif;
+                    margin-top: 2%;
+                    margin-bottom: 2%;
+                    margin-left: 60px;
+                    width: 82%;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: auto;
+                    margin-right: 0px;
+                    gap: 20px;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        label {
+                            font-family: "Raleway";
+                            font-size: 1.1rem;
+                            font-weight: 700;
+                        }
+
+                        input {
+                            font-family: "Rubik", sans-serif;
+                            font-size: 1.2rem;
+                            padding: 10px;
+                            border-radius: 10px;
+                            border: 1px solid #1f266b;
+                            width: 70%;
+                        }
+
+                        input[type="file"] {
+                            padding: 10px;
+                            border-radius: 10px;
+                            border: 1px solid #1f266b;
+                        }
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            margin-left: auto;
+                            margin-right: auto;
+                            background-color: #fbba00;
+                            color: black;
+                            font-family: "Rubik", sans-serif;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            padding: 10px;
+                            border: none;
+                            width: 30%;
+                            border-radius: 30px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .section {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        margin-left: 60px;
+                        margin-right: auto;
+                        gap: 20px;
+                    }
+
+                    .files {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        justify-content: center;
+                        margin-right: 0px;
+                        gap: 0px;
+
+                        div {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    .sign {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0px;
+                        background-color: rgb(245, 241, 241);
+                        border-radius: 20px;
+                        height: 20vh;
+
+                        label {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-family: "Raleway";
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            height: 50px;
+                            background-color: #c2c2c5;
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+
+        .footer1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 53vh;
+            background-color: #1f266b;
+            color: #ffffff;
+            font-size: 15px;
+
+            .coordonnees {
+                grid-column: 1 / 2;
+                align-self: flex-start;
+                justify-self: center;
+                margin-top: 20px;
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-family: "Raleway";
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    text-decoration: underline;
+                    text-decoration-color: #fbba00;
+                    text-decoration-thickness: 2px;
+                    text-underline-offset: 5px;
+                    margin-bottom: 20px;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    font-size: 1.2rem;
+                    gap: 30px;
+                    align-items: start;
+
+                    li {
+                        gap: 20px;
+                    }
+
+                    li::marker {
+                        color: rgb(251, 251, 251);
+                    }
+                }
+            }
+
+            .autre {
+                grid-column: 2 / 3;
+                align-self: flex-start;
+                justify-self: center;
+                margin-top: 20px;
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-family: "Raleway";
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    text-decoration: underline;
+                    text-decoration-color: #fbba00;
+                    text-decoration-thickness: 2px;
+                    text-underline-offset: 5px;
+                    margin-bottom: 20px;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    font-size: 1.2rem;
+                    gap: 30px;
+                    align-items: start;
+
+                    li::marker {
+                        color: rgb(251, 251, 251);
+                    }
+                }
+            }
+
+            .suivre {
+                grid-column: 3 / 4;
+                align-self: flex-start;
+                justify-self: center;
+                margin-top: 20px;
+
+                h2 {
+                    font-size: 20px;
+                    font-family: "Raleway";
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    margin-bottom: 1.5rem;
+                    text-decoration: underline;
+                    text-decoration-color: #fbba00;
+                    text-decoration-thickness: 2px;
+                    text-underline-offset: 5px;
+                    margin-bottom: 20px;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    font-size: 1.2rem;
+                    gap: 30px;
+                    align-items: start;
+                    justify-content: center;
+
+                    li::marker {
+                        color: rgb(251, 251, 251);
+                    }
+                }
+            }
+        }
+
+        .footer2 {
+            display: flex;
+            height: 13vh;
+            background-color: #89baad;
+            font-size: 1.1rem;
+            font-family: "Rubik", sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #1f266b;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                justify-content: space-around;
+                height: 100%;
+
+                ul {
+                    display: flex;
+                    margin-left: 70px;
+                    margin-right: 70px;
+                    gap: 70px;
+
+                    li {
+                        display: flex;
+                        list-style: none;
+                    }
+                }
+            }
+        }
+
+        .scroll {
+            height: 7.2vh;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .imgActus {
+        display: flex;
+
+        img {
+            height: 303px;
+        }
+    }
+
+    .seSignaler {
+        display: flex;
+        flex-direction: column;
+
+        .ActusTitle {
+            /* TITLE H1 */
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 25px;
+
+            img {
+                width: 18px;
+                margin-top: 10px;
+            }
+
+            h1 {
+                /* TITRE se signaler au ccas */
+                text-align: center;
+                margin-top: 15px;
+                font-family: "Raleway";
+                font-size: 2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
+        .hrActus {
+            border: 2px solid #070707;
+            margin-left: auto;
+            margin-right: auto;
+            width: 84%;
+        }
+
+        .inscription {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 140vh;
+
+            h2 {
+                display: flex;
+                justify-content: center;
+                font-family: "Raleway";
+                font-size: 1.4rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                align-items: center;
+                letter-spacing: 0.4px;
+                margin-left: 0px;
+            }
+
+            .inscriTxt {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                gap: 5vw;
+                height: 90vh;
+                margin-top: 0px;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    text-align: start;
+                    margin-top: 0px;
+                    font-size: 1.2rem;
+                    width: 340px;
+                    gap: 2px;
+
+                    li {
+                        gap: 20px;
+                        width: 330px;
+                        line-height: 1.2;
+                    }
+
+                    li::marker {
+                        color: rgb(2, 2, 2);
+                    }
+                }
+
+                img {
+                    height: 250px;
+                    float: right;
+                    margin-top: 0%;
+                }
+            }
+
+            .inscriTxt2 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                width: 100%;
+                font-family: "Rubik", sans-serif;
+                font-weight: 400;
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: start;
+                    margin-left: 120px;
+                    margin-top: 20px;
+                    font-family: "Rubik", sans-serif;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: inside;
+                    font-family: "Rubik", sans-serif;
+                    text-align: start;
+                    font-size: 1.2rem;
+                    margin-left: 120px;
+                    margin-top: 20px;
+
+                    li {
+                        gap: 20px;
+                        line-height: 1.2;
+                    }
+
+                    li::marker {
+                        color: rgb(2, 2, 2);
+                    }
+                }
+            }
+        }
+
+        .contrat {
+            display: flex;
+            flex-direction: column;
+            height: 150vh;
+            justify-content: center;
+
+            .contratTitle {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #1f266b;
+                height: 30vh;
+                gap: 20px;
+
+                h3 {
+                    /* TITRE Termes du contrat */
+                    display: flex;
+                    font-family: "Raleway";
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    align-self: center;
+                    align-items: center;
+                    color: white;
+                }
+
+                p {
+                    font-family: "Rubik", sans-serif;
+                    font-size: 1.2rem;
+                    color: white;
+                }
+
+                .download {
+                    display: flex;
+                    gap: 20px;
+
+                    .hrDownload1 {
+                        border: 2px solid #fbba00;
+                        rotate: 90deg;
+                        margin-right: 20px;
+                    }
+
+                    button {
+                        background-color: #fbba00;
+                        color: black;
+                        font-family: "Rubik", sans-serif;
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 30px;
+                        cursor: pointer;
+                    }
+
+                    .hrDownload2 {
+                        border: 2px solid #fbba00;
+                        rotate: 90deg;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .method1 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                h2 {
+                    display: flex;
+                    font-family: "Raleway";
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.4px;
+                    margin-bottom: 40px;
+                    justify-content: center;
+                }
+
+                .enLigne {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: rgb(225, 225, 225);
+                    border-radius: 10px;
+                    height: 40vh;
+                    width: 70%;
+
+                    h4 {
+                        display: flex;
+                        font-family: "Raleway";
+                        margin-left: 30px;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 30px;
+                        font-family: "Rubik", sans-serif;
+                    }
+                }
+            }
+
+            .method2 {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 15px;
+                text-align: start;
+                height: 70vh;
+                margin-left: 15%;
+                margin-right: 15%;
+
+                .mail {
+                    /* INSCRIPTION PAR MAIL */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: #89baad;
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 70vh;
+
+                    h4 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-left: 1.3rem;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 20px;
+                        width: 95%;
+                        font-family: "Rubik", sans-serif;
+                    }
+
+                    .email {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        width: 80%;
+                        margin-left: 1.4vw;
+                        height: 30px;
+
+                        p {
+                            font-size: 1.2rem;
+                            text-align: start;
+                            margin-left: 20px;
+                            font-family: "Rubik", sans-serif;
+                        }
+
+                        img {
+                            width: 8%;
+                        }
+                    }
+                }
+
+                .accueil {
+                    /* EN VOUS DEPLACANT */
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #89baad;
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 70vh;
+
+                    h4 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-left: 10px;
+                        margin-top: 18px;
+                        margin-bottom: 20px;
+                    }
+
+                    h5 {
+                        font-family: "Raleway";
+                        color: #1f266b;
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        margin-left: 10px;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        text-align: start;
+                        margin-left: 10px;
+                        font-family: "Rubik", sans-serif;
+                    }
+                }
+            }
+        }
+
+        .form {
+            /* SECTION FORMULAIRE */
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+            height: 145vh;
+
+            h2 {
+                /* FORMULAIRE DE DEMANDE D'INSCRIPTION EN LIGNE */
+                display: flex;
+                justify-content: center;
+                font-family: "Raleway";
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                align-items: center;
+                margin-left: 0px;
+                margin-bottom: 30px;
+            }
+
+            .donnees {
+                /* FORMULAIRE */
+                display: flex;
+                flex-direction: column;
+                width: 85%;
+                background-color: #ced6d4;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 30px;
+                height: 120vh;
+
+                h3 {
+                    /* INFORMATION DE VOS DONNÉES PERSONNELLES */
+                    display: flex;
+                    justify-content: center;
+                    font-family: "Raleway";
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-left: 0px;
+                    margin-top: 20px;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    font-family: "Rubik", sans-serif;
+                    margin-top: 2%;
+                    margin-bottom: 2%;
+                    margin-left: 60px;
+                    width: 82%;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: auto;
+                    margin-right: 0px;
+                    gap: 20px;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        label {
+                            font-family: "Raleway";
+                            font-size: 1.1rem;
+                            font-weight: 700;
+                        }
+
+                        input {
+                            font-family: "Rubik", sans-serif;
+                            font-size: 1.2rem;
+                            padding: 10px;
+                            border-radius: 10px;
+                            border: 1px solid #1f266b;
+                            width: 70%;
+                        }
+
+                        input[type="file"] {
+                            padding: 10px;
+                            border-radius: 10px;
+                            border: 1px solid #1f266b;
+                        }
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            margin-left: auto;
+                            margin-right: auto;
+                            background-color: #fbba00;
+                            color: black;
+                            font-family: "Rubik", sans-serif;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            padding: 10px;
+                            border: none;
+                            width: 30%;
+                            border-radius: 30px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .section {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        margin-left: 60px;
+                        margin-right: auto;
+                        gap: 20px;
+                    }
+
+                    .files {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        justify-content: center;
+                        margin-right: 0px;
+                        gap: 0px;
+
+                        div {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    .sign {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0px;
+                        background-color: rgb(245, 241, 241);
+                        border-radius: 20px;
+                        height: 20vh;
+
+                        label {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-family: "Raleway";
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            height: 50px;
+                            background-color: #c2c2c5;
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        .footer1 {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+            padding-bottom: 40px;
+            padding-left: 40px;
+
+            .coordonnees {
+                ul {
+                    gap: 10px;
+                }
+            }
+
+            .autre {
+                ul {
+                    gap: 10px;
+                }
+            }
+
+            .suivre {
+                ul {
+                    gap: 10px;
+                }
+            }
+        }
+
+        .footer2 {
+            display: flex;
+            height: auto;
+            justify-content: center;
+            background-color: #89baad;
+            font-size: 1.1rem;
+            font-family: "Rubik", sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #1f266b;
+
+            div {
+                justify-content: none;
+                height: auto;
+                width: auto;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    padding-block: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .imgActus {
+        display: flex;
+
+        img {
+            height: 270px;
+        }
     }
 }
 </style>
