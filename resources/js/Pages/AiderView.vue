@@ -1,78 +1,152 @@
 <script>
 export default {
-    name: "SortiesView",
+    name: "AiderView",
 };
 </script>
 
 <template>
-    <hr class="hrHead" />
-
     <div class="body">
         <div class="title">
             <div class="yellow-bar"></div>
-            <h1>Les sorties du CCAS</h1>
+            <h1>SE FAIRE AIDER (MRC, AIDE À DOMICILE, GRILLE AGGIR,…)</h1>
         </div>
-
-        <span class="blue-line"></span>
-
-        <div class="catalogue">
-            <div class="text-yellow-bar">
-                <div class="yellow-bar"></div>
-                <h2>Le catalogue semestriel</h2>
-            </div>
-            <div class="paragraphs-img">
+        <span class="first-circle"></span>
+        <div class="container">
+            <h2>Téléassistance, portage de repas, aides à domicile</h2>
+            <div class="paragraph-img">
                 <div class="paragraphs">
+                    <h3>Avec le CCAS</h3>
                     <p>
-                        Tout au long de l’année, des activités socio-culturelles
-                        et des sorties en demi-journées ou journées complètes
-                        sont proposées. Elles sont répertoriées dans un livret
-                        semestriel, adressé par courrier aux personnes
-                        inscrites, téléchargeable ci-dessous ou disponible à
-                        l’accueil du CCAS.
+                        Le CCAS mène une politique dynamique en faveur des
+                        personnes âgées en luttant contre l’isolement, en
+                        organisant des activités socio-culturelles, en
+                        facilitant les déplacements grâce aux navettes
+                        régulières ou individuelles, en contactant les
+                        personnes signalées pendant les périodes de crises
+                        (canicule, crise sanitaire, grand froid…).
                     </p>
                     <p>
-                        Les sorties payantes sont en partie subventionnées par
-                        le CCAS ; Les bénéficiaires du Minimum de Ressources
-                        Communales sont invités une fois par an à profiter
-                        gratuitement d’une sortie estivale.
+                        Les référents sociaux accompagnent également les
+                        personnes en situation de perte d’autonomie et leur
+                        famille, en proposant de mettre en place divers services
+                        qui concourent à leur maintien au domicile comme
+                        la téléassistance et le portage de repas, des aides à
+                        domicile…
                     </p>
                     <p>
-                        Les inscriptions aux sorties se font précisément aux
-                        dates indiquées dans le catalogue, sur le site de la
-                        ville (suivez l’info sur l’agenda et sur les actualités)
-                        et dans le dépliant «Sortir» mensuel. Les conditions de
-                        réservations, de participation, de remboursement… y sont
-                        également précisées.
+                        Le CCAS s’assure que tous les droits sociaux sont
+                        ouverts, et dans le cas contraire accompagne les
+                        démarches administratives, étudie les aides financières
+                        possibles pour la mise en place de plan d’aide
+                        personnalisé et instruit, pour les plus démunis, les
+                        dossiers ouvrant droit au Minimum de Ressources Communal
+                        pour les personnes pouvant en bénéficier.
+                    </p>
+                    <p>
+                        Le CCAS apporte également une écoute et un soutien
+                        auprès des « aidants » familiaux.
                     </p>
                 </div>
-                <span class="first-circle"></span>
                 <span class="second-circle"></span>
-                <img
-                    src="../../assets/personnes_sorties.png"
-                    alt="Personnes âgées"
-                />
+                <img src="../../assets/aide.png" alt="Personnes âgées" />
             </div>
         </div>
-
-        <div class="sorties">
-            <div class="text-yellow-bar">
-                <div class="yellow-bar"></div>
-                <h2>
-                    Les sorties accessibles aux personnes<br />à mobilité
-                    réduite
-                </h2>
-            </div>
+        <div class="container">
+            <h2>Le minimum de ressources communal (MRC)</h2>
+            <h3>
+                Une aide financière pour les personnes âgées les plsu démunies
+            </h3>
             <p>
-                Elles sont signalées par le pictogramme ci-contre.<br />
-                Attention cependant les personnes en fauteuil devront<br />
-                impérativement être accompagnées et le signaler lors de
-                l’inscription.
+                Depuis 2009, le Conseil d’Administration a mis en place
+                le Minimum de Ressources Communal (MRC). Il s’agit d’une
+                allocation trimestrielle pour les personnes âgées de plus de 65
+                ans, domiciliée à Bois Colombes, de façon régulière et continue,
+                qui ont fait valoir tous leurs droits au niveau national
+                (notamment l’ASPA, l’allocation de solidarité aux personnes
+                âgées).
+            </p>
+            <p>
+                Si leurs ressources cumulées sont inférieures au seuil de
+                pauvreté, fixé par l’INSEE en 2020 à 1041 € mensuels, elles
+                peuvent alors bénéficier du MRC, pour un montant maximal mensuel
+                de 148 €.
+            </p>
+            <p>Pour toute information complémentaire, contacter le CCAS.</p>
+        </div>
+        <div class="container">
+            <h2>Allocations et aides aux personnes âgées (APA)</h2>
+            <p>
+                Une personne âgée peut bénéficier de l’allocation personnalisée
+                d’autonomie (Apa) en cas de perte d’autonomie, de l’allocation
+                de solidarité aux personnes âgées (Aspa) si elle a de faibles
+                revenus, de l’allocation supplémentaire d’invalidité (Asi) si
+                elle est invalide et n’a pas atteint l’âge légal de départ à la
+                retraite. <br />Des aides sociales peuvent aussi lui être
+                proposées.
+            </p>
+            <p>
+                APA : QU’EST-CE QUE LE GIR 1, 2, 3 OU 4 DE LA GRILLE AGGIR ?
+                <br />La grille Aggir est utilisée dans le cadre d’une
+                demande d’allocation personnalisée d’autonomie (Apa).Cette
+                grille permet de mesurer le degré de perte d’autonomie du
+                demandeur de l’Apa, et, s’il y a effectivement droit, le niveau
+                d’aides dont il a besoin. Elle est intégrée à un référentiel
+                d’évaluation qui permet de recueillir l’ensemble des
+                informations nécessaires à l’élaboration du plan d’aide du
+                demandeur.<br />
+                La grille mesure les capacités de la personne âgée à accomplir :
+            </p>
+            <ul>
+                <li>
+                    10 activités corporelles et mentales, dites activités
+                    discriminantes,
+                </li>
+                <li>
+                    et 7 activités domestiques et sociales, dites activités
+                    illustratives.
+                </li>
+            </ul>
+            <p>
+                Seules les 10 activités discriminantes sont utilisées pour
+                déterminer le Gir dont relève le demandeur de l’Apa. Les degrés
+                de perte d’autonomie sont classés en 6 Gir. À chaque Gir
+                correspond un niveau de besoins d’aides pour accomplir les actes
+                essentiels de la vie quotidienne.
+            </p>
+            <p>
+                Les 7 activités illustratives sont destinées à apporter des
+                informations complémentaires à l’évaluateur pour mieux
+                appréhender la situation globale du demandeur.
             </p>
         </div>
-
-        <img src="../../assets/img_sorties.png" alt="Paysage montagnes" />
+        <div class="white-blocs">
+            <div class="white-bloc">
+                <h4>
+                    A LIRE SUR LE PORTAIL NATIONAL D’INFORMATION DES PERSONNES
+                    ÂGÉES ET DE LEUR FAMILLE
+                </h4>
+                <p>
+                    Comment évaluer la perte d’autonomie ?Ce sont des
+                    professionnels qui évaluent la perte d’autonomie : équipe
+                    médico-sociale APA ou médecin coordonnateur.<br />
+                    Lire la suite sur le site
+                    <br />
+                    pour-les-personnes-agees.gouv.fr
+                </p>
+            </div>
+            <div class="white-bloc">
+                <h4>A LIRE SUR SERVICE-PUBLIC.FR :</h4>
+                <ul>
+                    <li>Allocation personnalisée d’autonomie (Apa)</li>
+                    <li>Allocation de solidarité aux personnes âgées (Aspa)</li>
+                    <li>Allocation supplémentaire d’invalidité (Asi)</li>
+                    <li>Allocation simple</li>
+                    <li>Obtenir une aide ménagère</li>
+                    <li>Prise en charge des repas</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
     <footer>
         <div class="footer">
             <img src="../../assets/balancoire.png" alt="" class="balancoire" />
@@ -153,14 +227,13 @@ export default {
 /* --------------- BODY --------------- */
 
 .body {
-    background-image: url("../../assets/background-sorties.png");
+    background-image: url("../../assets/background-se-faire-aider.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
     background-color: #89baad;
     padding-inline: 160px;
     overflow-x: hidden;
-
 
     h2 {
         font-size: 34px;
@@ -176,6 +249,28 @@ export default {
         height: auto;
         padding-bottom: 80px;
     }
+
+    .first-circle {
+        width: 400px;
+        height: 400px;
+        background-color: #89baad;
+        border-radius: 50%;
+        margin-top: -60px;
+        margin-left: -220px;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .second-circle {
+        width: 300px;
+        height: 300px;
+        background-color: #89baad;
+        border-radius: 50%;
+        margin-top: 500px;
+        margin-left: 900px;
+        position: absolute;
+        z-index: 0;
+    }
 }
 
 .title {
@@ -183,6 +278,7 @@ export default {
     align-items: center;
     justify-content: center;
     padding-top: 50px;
+    padding-bottom: 80px;
 
     .yellow-bar {
         width: 10px;
@@ -202,41 +298,30 @@ export default {
     }
 }
 
-.blue-line {
-    display: block;
-    width: 100%;
-    height: 5px;
-    background-color: #1f266b;
-    margin-block: 20px;
-    border-radius: 5px;
-}
-
-.text-yellow-bar {
+.container {
     display: flex;
-    align-items: center;
-    width: 100vw;
-
-    .yellow-bar {
-        width: 10px;
-        height: 40px;
-        background-color: #fbba00;
-        transform: rotate(10deg);
-        margin-right: 10px;
-        margin-bottom: 20px;
-    }
-}
-
-.catalogue {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
     h2 {
         font-size: 34px;
         font-family: "Open Sans", sans-serif;
         text-transform: uppercase;
         font-weight: bold;
-        color: #000000;
         padding-bottom: 16px;
+        z-index: 1;
+    }
+
+    h3 {
+        font-size: 22px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #1f266b;
+        padding-bottom: 16px;
+        z-index: 1;
     }
 
     p {
@@ -244,73 +329,95 @@ export default {
         font-family: "Open Sans", sans-serif;
         color: #000000;
         padding-bottom: 16px;
-        font-weight: 500;
+        z-index: 1;
     }
 
-    .paragraphs-img {
+    ul {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        list-style: inside;
+        font-family: "Open Sans", sans-serif;
+        font-size: 24px;
+        gap: 30px;
+        align-items: start;
 
-        .paragraphs {
-            padding-block: 60px;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            z-index: 1;
+        li {
+            gap: 20px;
+            margin-left: 20px;
         }
+    }
 
-        .first-circle {
-            width: 300px;
-            height: 300px;
-            background-color: #89baad;
-            border-radius: 50%;
-            margin-top: 250px;
-            margin-left: -220px;
-            position: absolute;
-            z-index: 0;
-        }
-
-        .second-circle {
-            width: 200px;
-            height: 200px;
-            background-color: #89baad;
-            border-radius: 50%;
-            margin-top: 20px;
-            margin-left: 700px;
-            position: absolute;
-            z-index: 0;
-        }
+    .paragraph-img {
+        display: flex;
+        gap: 40px;
 
         img {
-            width: 40%;
-            height: 40%;
-            margin-right: 0;
-            margin-top: 120px;
+            // width: 30%;
+            height: auto;
             z-index: 1;
+        }
+
+        .paragraphs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+                font-size: 24px;
+                font-family: "Open Sans", sans-serif;
+                color: #000000;
+                padding-bottom: 16px;
+            }
         }
     }
 }
 
-.sorties {
-    padding-top: 40px;
-    padding-bottom: 40px;
+.white-blocs {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
-    h2 {
-        font-size: 34px;
-        font-family: "Open Sans", sans-serif;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: #000000;
-        padding-bottom: 16px;
-    }
+    .white-bloc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40%;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
-    p {
-        font-size: 24px;
-        font-family: "Open Sans", sans-serif;
-        color: #000000;
-        padding-top: 40px;
-        padding-bottom: 16px;
-        font-weight: 500;
+        h4 {
+            font-size: 24px;
+            font-family: "Open Sans", sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #1f266b;
+            padding-bottom: 16px;
+        }
+
+        p {
+            font-size: 24px;
+            font-family: "Open Sans", sans-serif;
+            color: #000000;
+            padding-bottom: 16px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: inside;
+            font-family: "Open Sans", sans-serif;
+            font-size: 24px;
+            gap: 10px;
+            align-items: start;
+
+            li {
+                margin-left: 20px;
+            }
+        }
     }
 }
 
@@ -479,8 +586,13 @@ export default {
 /* --------------- MEDIA QUERIES --------------- */
 
 @media (min-width: 1440px) {
-    .paragraphs {
-        width: 50%;
+    .paragraph-img {
+        .paragraphs {
+            width: 50%;
+        }
+        img {
+            width: 30%;
+        }
     }
 }
 
@@ -489,48 +601,24 @@ export default {
         padding-inline: 100px;
     }
 
+    .second-circle {
+        display: none;
+    }
+
     .title {
         padding-top: 50px;
         padding-inline: 100px;
     }
 
-    .catalogue {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        padding-inline: 100px;
-    }
-
-    .sorties {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        padding-inline: 100px;
-    }
-
-    .paragraphs-img {
+    .paragraph-img {
+        justify-content: space-between;
         .paragraphs {
             padding-block: 40px;
             width: 50%;
         }
-
-        .first-circle {
-            display: none;
-        }
-
-        .second-circle {
-            display: none;
-        }
-
         img {
-            display: flex;
-            justify-content: center;
-            width: 80vw;
+            width: 50%;
         }
-    }
-
-    img {
-        display: flex;
-        justify-content: center;
-        width: 80vw;
     }
 
     .footer {
@@ -549,7 +637,7 @@ export default {
         padding-inline: 20px;
 
         img {
-            width: 50%;
+            display: none;
         }
     }
 
@@ -558,21 +646,49 @@ export default {
         padding-inline: 20px;
     }
 
-    .blue-line {
-        width: 95%;
-    }
-
-    .paragraphs-img {
-        justify-content: flex-start;
-    }
-    .paragraphs {
-        padding-block: 20px;
-        width: 100%;
-    }
-
-    .text-yellow-bar {
+    .container {
         h2 {
-            font-size: 20px;
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        ul {
+            font-size: 18px;
+        }
+    }
+
+    .white-blocs {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        .white-bloc {
+            width: 100%;
+
+            h4 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            ul {
+                font-size: 18px;
+
+                li {
+                    margin-left: 20px;
+                }
+            }
         }
     }
 

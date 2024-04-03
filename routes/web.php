@@ -7,6 +7,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResidenceController;
 use App\Http\Controllers\SortieController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -24,6 +25,9 @@ Route::get('/residences-et-etablissements', [ResidenceController::class, 'index'
 
 Route::get('/sorties-du-ccas', [SortieController::class, 'index'])
     ->name('sorties-du-ccas');
+
+Route::get('/se-faire-aider', [HelpController::class, 'index'])
+    ->name('se-faire-aider');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
