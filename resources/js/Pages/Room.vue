@@ -21,7 +21,11 @@ export default {
             this.$inertia.visit("/dashboard");
         },
         formatDate(date) {
-            return new Date(date).toLocaleDateString();
+            const dateTime = new Date(date);
+            return `${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString(
+                [],
+                { hour: "2-digit", minute: "2-digit" }
+            )}`;
         },
         submitForm() {
             console.log("submitForm has been called");
@@ -50,18 +54,15 @@ export default {
 };
 </script>
 <template>
-    <div>
+    <div class="header">
         <button @click="goBack">Retour</button>
-        <h1>Événement associé :</h1>
-        <p v-if="room.event">Nom : {{ room.event.name }}</p>
-        <p v-if="room.event">Description : {{ room.event.description }}</p>
-        <p v-if="room.event">Date : {{ room.event.date }}</p>
+        <h1>Sortie : {{ room.name }}</h1>
     </div>
     <div class="chat-container">
         <div class="chat-messages">
             <div class="message" v-for="chat in chats" :key="chat.id">
                 <p class="user-name">{{ chat.user.name }}</p>
-                <p>{{ formatDate(chat.created_at) }}</p>
+                <p class="user-date">{{ formatDate(chat.created_at) }}</p>
                 <p class="message-text">{{ chat.message }}</p>
                 <img
                     v-if="chat.image"
@@ -74,7 +75,7 @@ export default {
             <input
                 type="text"
                 v-model="form.message"
-                placeholder="Type a message"
+                placeholder="Entrer votre message ici..."
             />
             <input
                 id="image"
@@ -82,11 +83,69 @@ export default {
                 ref="image"
                 @change="form.image = $refs.image.files[0]"
             />
-            <button type="submit">Submit</button>
+            <label for="image">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="icon icon-plus"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                </svg>
+            </label>
+            <button type="submit">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="icon"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
+                </svg>
+            </button>
         </form>
     </div>
 </template>
 <style scoped lang="scss">
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: #1f266b;
+    color: white;
+
+    h1 {
+        padding-block: 1rem;
+        margin-left: 5%;
+    }
+
+    button {
+        padding: 0.5em 1em;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
+
 .chat-container {
     display: flex;
     flex-direction: column;
@@ -100,14 +159,25 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 1em;
+        margin-bottom: 60px;
 
         .message {
             display: flex;
             flex-direction: column;
             gap: 0.5em;
+            margin-inline: 9.47%;
+            background-color: #dceae6;
+            font-size: 1.2em;
+            padding: 1em;
+            border-radius: 4px;
 
             .user-name {
                 font-weight: bold;
+                font-size: 1.5em;
+            }
+
+            .user-date {
+                font-size: 0.8em;
             }
 
             .message-text {
@@ -115,36 +185,98 @@ export default {
             }
 
             img {
-                max-width: 200px;
-                max-height: 200px;
+                max-width: 300px;
+                max-height: 300px;
             }
         }
     }
 
     form {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
         display: flex;
+        height: 70px;
         gap: 1em;
-        padding: 1em;
-        background-color: #f5f5f5;
+        padding: 1em 15em;
+        background-color: #1f266b;
+
+        button,
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                height: 1.7em;
+                width: 1.7em;
+
+                &.icon-plus {
+                    padding-bottom: 5px;
+                }
+            }
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 0;
+        }
 
         input[type="text"] {
             flex: 1;
-            padding: 0.5em;
+            padding: 1em;
             border: 1px solid #ddd;
             border-radius: 4px;
+
+            &::placeholder {
+                font-size: 1.2em;
+            }
         }
 
-        button {
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
             padding: 0.5em 1em;
-            border: none;
-            border-radius: 4px;
             background-color: #007bff;
             color: white;
+            border-radius: 4px;
             cursor: pointer;
 
             &:hover {
                 background-color: #0056b3;
             }
+        }
+
+        button {
+            padding: 0em 1em;
+            border: none;
+            font-size: 1.1em;
+            border-radius: 4px;
+            background-color: #fbba00;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #f9a602;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .chat-container {
+        .chat-messages {
+            margin-bottom: 30px;
+        }
+
+        form {
+            padding: 1em;
         }
     }
 }
